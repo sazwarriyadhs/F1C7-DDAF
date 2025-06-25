@@ -265,3 +265,52 @@ export const inventory = [
     { id: "INV004", name: "Turkish Cotton Towels", category: "Linens", stock: 80, supplier: "SoftWeave Co." },
     { id: "INV005", name: "Pilates Reformer Spring", category: "Equipment Parts", stock: 30, supplier: "FlexiGear" },
 ];
+
+const financialData = {
+    summary: {
+        revenue_idr: 610000000,
+        expenses_idr: 250000000,
+        profit_idr: 360000000,
+        revenue_usd: 42055,
+        expenses_usd: 17240,
+        profit_usd: 24815,
+    },
+    monthlyData: [
+        { month: { id: "Mar", en: "Mar" }, revenue_idr: 55000000, expenses_idr: 20000000, revenue_usd: 3790, expenses_usd: 1380 },
+        { month: { id: "Apr", en: "Apr" }, revenue_idr: 58000000, expenses_idr: 22000000, revenue_usd: 3995, expenses_usd: 1515 },
+        { month: { id: "Mei", en: "May" }, revenue_idr: 62000000, expenses_idr: 24000000, revenue_usd: 4270, expenses_usd: 1655 },
+        { month: { id: "Jun", en: "Jun" }, revenue_idr: 60000000, expenses_idr: 23000000, revenue_usd: 4135, expenses_usd: 1585 },
+        { month: { id: "Jul", en: "Jul" }, revenue_idr: 65000000, expenses_idr: 26000000, revenue_usd: 4480, expenses_usd: 1790 },
+        { month: { id: "Agu", en: "Aug" }, revenue_idr: 68000000, expenses_idr: 28000000, revenue_usd: 4685, expenses_usd: 1930 },
+    ],
+    recentTransactions: [
+        { id: "TXN001", date: "2024-08-14", description: { id: "Pembayaran Klien - S. Davis", en: "Client Payment - S. Davis" }, category: { id: "Layanan", en: "Service" }, amount_idr: 180000, amount_usd: 12, type: "Income" },
+        { id: "TXN002", date: "2024-08-14", description: { id: "Pembelian Minyak Esensial", en: "Essential Oil Purchase" }, category: { id: "Persediaan", en: "Supplies" }, amount_idr: 750000, amount_usd: 50, type: "Expense" },
+        { id: "TXN003", date: "2024-08-13", description: { id: "Pembayaran Klien - L. Miller", en: "Client Payment - L. Miller" }, category: { id: "Layanan", en: "Service" }, amount_idr: 150000, amount_usd: 10, type: "Income" },
+        { id: "TXN004", date: "2024-08-12", description: { id: "Gaji Staf", en: "Staff Salaries" }, category: { id: "Gaji", en: "Payroll" }, amount_idr: 15000000, amount_usd: 1000, type: "Expense" },
+        { id: "TXN005", date: "2024-08-12", description: { id: "Penjualan Produk - Yoga Mat", en: "Product Sale - Yoga Mat" }, category: { id: "Eceran", en: "Retail" }, amount_idr: 300000, amount_usd: 20, type: "Income" },
+    ]
+}
+
+export const getFinancialData = (lang: 'id' | 'en') => {
+    const isId = lang === 'id';
+    return {
+        summary: {
+            revenue: isId ? financialData.summary.revenue_idr : financialData.summary.revenue_usd,
+            expenses: isId ? financialData.summary.expenses_idr : financialData.summary.expenses_usd,
+            profit: isId ? financialData.summary.profit_idr : financialData.summary.profit_usd,
+        },
+        monthlyData: financialData.monthlyData.map(d => ({
+            month: d.month[lang],
+            revenue: isId ? d.revenue_idr : d.revenue_usd,
+            expenses: isId ? d.expenses_idr : d.expenses_usd,
+            profit: (isId ? d.revenue_idr : d.revenue_usd) - (isId ? d.expenses_idr : d.expenses_usd),
+        })),
+        recentTransactions: financialData.recentTransactions.map(t => ({
+            ...t,
+            description: t.description[lang],
+            category: t.category[lang],
+            amount: isId ? t.amount_idr : t.amount_usd,
+        }))
+    }
+}

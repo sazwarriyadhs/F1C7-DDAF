@@ -5,14 +5,15 @@ import {
   Bell,
   Calendar,
   CircleUser,
+  CreditCard,
+  Dumbbell,
   Home,
+  Languages,
   Menu,
   Search,
   ShoppingBasket,
-  Users,
   Sprout,
-  Dumbbell,
-  Languages
+  Users,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -49,6 +50,7 @@ const getNavItems = (language: Language) => {
         classes: { id: "Kelas", en: "Classes" },
         staff: { id: "Staf", en: "Staff" },
         inventory: { id: "Inventaris", en: "Inventory" },
+        financials: { id: "Keuangan", en: "Financials" },
     };
 
     return [
@@ -58,6 +60,7 @@ const getNavItems = (language: Language) => {
         { href: "/dashboard/classes", icon: Dumbbell, label: translations.classes[language] },
         { href: "/dashboard/staff", icon: Users, label: translations.staff[language] },
         { href: "/dashboard/inventory", icon: ShoppingBasket, label: translations.inventory[language] },
+        { href: "/dashboard/financials", icon: CreditCard, label: translations.financials[language] },
     ];
 };
 
