@@ -1,0 +1,88 @@
+'use client'
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { clients } from "@/lib/data"
+import { MoreHorizontal, PlusCircle } from "lucide-react"
+import { useSettings } from "@/context/settings-context"
+
+export default function ClientsPage() {
+  const { language } = useSettings();
+
+  const translations = {
+      title: { id: "Manajemen Klien", en: "Client Management" },
+      description: { id: "Lihat, tambah, dan kelola data klien Anda.", en: "View, add, and manage your client data." },
+      addClient: { id: "Tambah Klien", en: "Add Client" },
+      name: { id: "Nama", en: "Name" },
+      email: { id: "Email", en: "Email" },
+      phone: { id: "Telepon", en: "Phone" },
+      totalAppointments: { id: "Total Janji Temu", en: "Total Appointments" },
+      lastVisit: { id: "Kunjungan Terakhir", en: "Last Visit" },
+      actions: { id: "Tindakan", en: "Actions" },
+      edit: { id: "Ubah", en: "Edit" },
+      viewHistory: { id: "Lihat Riwayat", en: "View History" },
+      delete: { id: "Hapus", en: "Delete" },
+      toggleMenu: { id: "Alihkan menu", en: "Toggle menu" },
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle>{translations.title[language]}</CardTitle>
+            <CardDescription>{translations.description[language]}</CardDescription>
+          </div>
+          <Button size="sm" className="gap-1">
+            <PlusCircle className="h-4 w-4" />
+            {translations.addClient[language]}
+          </Button>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>{translations.name[language]}</TableHead>
+              <TableHead>{translations.email[language]}</TableHead>
+              <TableHead>{translations.phone[language]}</TableHead>
+              <TableHead>{translations.totalAppointments[language]}</TableHead>
+              <TableHead>{translations.lastVisit[language]}</TableHead>
+              <TableHead><span className="sr-only">{translations.actions[language]}</span></TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {clients.map((client) => (
+              <TableRow key={client.id}>
+                <TableCell className="font-medium">{client.name}</TableCell>
+                <TableCell>{client.email}</TableCell>
+                <TableCell>{client.phone}</TableCell>
+                <TableCell>{client.totalAppointments}</TableCell>
+                <TableCell>{client.lastVisit}</TableCell>
+                <TableCell>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button aria-haspopup="true" size="icon" variant="ghost">
+                        <MoreHorizontal className="h-4 w-4" />
+                        <span className="sr-only">{translations.toggleMenu[language]}</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuLabel>{translations.actions[language]}</DropdownMenuLabel>
+                      <DropdownMenuItem>{translations.edit[language]}</DropdownMenuItem>
+                      <DropdownMenuItem>{translations.viewHistory[language]}</DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem className="text-destructive">{translations.delete[language]}</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  )
+}

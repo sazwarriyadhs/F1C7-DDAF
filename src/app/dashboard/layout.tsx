@@ -15,6 +15,7 @@ import {
   Sprout,
   Users,
   Bed,
+  UsersRound,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -47,6 +48,7 @@ const getNavItems = (language: Language) => {
     const translations = {
         dashboard: { id: "Dasbor", en: "Dashboard" },
         appointments: { id: "Janji Temu", en: "Appointments" },
+        clients: { id: "Klien", en: "Clients" },
         services: { id: "Layanan", en: "Services" },
         classes: { id: "Kelas", en: "Classes" },
         staff: { id: "Staf", en: "Staff" },
@@ -58,9 +60,10 @@ const getNavItems = (language: Language) => {
     return [
         { href: "/dashboard", icon: Home, label: translations.dashboard[language] },
         { href: "/dashboard/appointments", icon: Calendar, label: translations.appointments[language], badge: "6" },
+        { href: "/dashboard/clients", icon: Users, label: translations.clients[language] },
         { href: "/dashboard/services", icon: Sprout, label: translations.services[language] },
         { href: "/dashboard/classes", icon: Dumbbell, label: translations.classes[language] },
-        { href: "/dashboard/staff", icon: Users, label: translations.staff[language] },
+        { href: "/dashboard/staff", icon: UsersRound, label: translations.staff[language] },
         { href: "/dashboard/inventory", icon: ShoppingBasket, label: translations.inventory[language] },
         { href: "/dashboard/financials", icon: CreditCard, label: translations.financials[language] },
         { href: "/dashboard/rooms", icon: Bed, label: translations.rooms[language] },
