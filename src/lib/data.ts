@@ -368,16 +368,6 @@ export const rooms = [
     }
 ];
 
-export const clients: (any)[] = [
-    { id: "CUST001", name: "Sophia Davis", email: "sophia.davis@example.com", phone: "555-123-4567", totalAppointments: 5, lastVisit: "2024-08-15", rfid: "A1B2C3D4" },
-    { id: "CUST002", name: "Liam Miller", email: "liam.miller@example.com", phone: "555-987-6543", totalAppointments: 8, lastVisit: "2024-08-15", rfid: "B2C3D4E5" },
-    { id: "CUST003", name: "Olivia Wilson", email: "olivia.wilson@example.com", phone: "555-456-7890", totalAppointments: 2, lastVisit: "2024-08-10", rfid: "C3D4E5F6" },
-    { id: "CUST004", name: "Noah Johnson", email: "noah.johnson@example.com", phone: "555-321-0987", totalAppointments: 12, lastVisit: "2024-08-16", rfid: null },
-    { id: "CUST005", name: "Ava Brown", email: "ava.brown@example.com", phone: "555-789-1234", totalAppointments: 3, lastVisit: "2024-07-25", rfid: "D4E5F6G7" },
-    { id: "CUST006", name: "Ethan Garcia", email: "ethan.garcia@example.com", phone: "555-234-5678", totalAppointments: 7, lastVisit: "2024-08-01", rfid: null },
-    { id: "CUST007", name: "Mia Martinez", email: "mia.martinez@example.com", phone: "555-876-5432", totalAppointments: 1, lastVisit: "2024-08-12", rfid: "E5F6G7H8" },
-];
-
 export const marketplaces = [
     {
         id: 'traveloka',
