@@ -19,64 +19,87 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { appointments, popularServicesData, chartConfig } from "@/lib/data"
+import { appointments, getPopularServicesData, chartConfig } from "@/lib/data"
+import { useSettings } from "@/context/settings-context"
 
 
 export default function Dashboard() {
+  const { language } = useSettings();
+  const popularServicesData = getPopularServicesData(language);
+  
+  const translations = {
+    todaysRevenue: { id: "Pendapatan Hari Ini", en: "Today's Revenue" },
+    fromYesterday: { id: "+15.2% dari kemarin", en: "+15.2% from yesterday" },
+    newClients: { id: "Klien Baru", en: "New Clients" },
+    fromLastWeek: { id: "+12.1% dari minggu lalu", en: "+12.1% from last week" },
+    upcomingAppointments: { id: "Janji Temu Mendatang", en: "Upcoming Appointments" },
+    inNext24Hours: { id: "dalam 24 jam ke depan", en: "in the next 24 hours" },
+    classCapacity: { id: "Kapasitas Kelas", en: "Class Capacity" },
+    avgToday: { id: "Rata-rata di semua kelas hari ini", en: "Average across all classes today" },
+    appointmentsTodayTomorrow: { id: "Daftar janji temu untuk hari ini dan besok.", en: "A list of appointments for today and tomorrow." },
+    client: { id: "Klien", en: "Client" },
+    service: { id: "Layanan", en: "Service" },
+    status: { id: "Status", en: "Status" },
+    date: { id: "Tanggal", en: "Date" },
+    time: { id: "Waktu", en: "Time" },
+    popularServices: { id: "Layanan Populer", en: "Popular Services" },
+    mostBookedThisMonth: { id: "Layanan yang paling banyak dipesan bulan ini.", en: "The most booked services this month." },
+  };
+
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Today's Revenue
+              {translations.todaysRevenue[language]}
             </CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$4,205.50</div>
+            <div className="text-2xl font-bold">{language === 'id' ? 'Rp61.000.000' : '$4,205.50'}</div>
             <p className="text-xs text-muted-foreground">
-              +15.2% from yesterday
+              {translations.fromYesterday[language]}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              New Clients
+              {translations.newClients[language]}
             </CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+25</div>
             <p className="text-xs text-muted-foreground">
-              +12.1% from last week
+              {translations.fromLastWeek[language]}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Upcoming Appointments</CardTitle>
+            <CardTitle className="text-sm font-medium">{translations.upcomingAppointments[language]}</CardTitle>
             <CalendarIcon className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">12</div>
             <p className="text-xs text-muted-foreground">
-              in the next 24 hours
+              {translations.inNext24Hours[language]}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Class Capacity
+              {translations.classCapacity[language]}
             </CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">82%</div>
             <p className="text-xs text-muted-foreground">
-              Average across all classes today
+              {translations.avgToday[language]}
             </p>
           </CardContent>
         </Card>
@@ -84,18 +107,18 @@ export default function Dashboard() {
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
         <Card className="xl:col-span-2">
           <CardHeader>
-            <CardTitle>Upcoming Appointments</CardTitle>
-            <CardDescription>A list of appointments for today and tomorrow.</CardDescription>
+            <CardTitle>{translations.upcomingAppointments[language]}</CardTitle>
+            <CardDescription>{translations.appointmentsTodayTomorrow[language]}</CardDescription>
           </CardHeader>
           <CardContent>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Client</TableHead>
-                  <TableHead>Service</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Time</TableHead>
+                  <TableHead>{translations.client[language]}</TableHead>
+                  <TableHead>{translations.service[language]}</TableHead>
+                  <TableHead>{translations.status[language]}</TableHead>
+                  <TableHead>{translations.date[language]}</TableHead>
+                  <TableHead>{translations.time[language]}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -118,16 +141,16 @@ export default function Dashboard() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Popular Services</CardTitle>
-            <CardDescription>The most booked services this month.</CardDescription>
+            <CardTitle>{translations.popularServices[language]}</CardTitle>
+            <CardDescription>{translations.mostBookedThisMonth[language]}</CardDescription>
           </CardHeader>
           <CardContent>
              <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
                 <ResponsiveContainer width="100%" height={250}>
-                    <BarChart data={popularServicesData} layout="vertical" margin={{ left: 10, right: 10 }}>
+                    <BarChart data={popularServicesData} layout="vertical" margin={{ left: 10, right: 10, top: 10, bottom: 10 }}>
                         <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                         <XAxis type="number" hide />
-                        <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} tickMargin={10} width={80} />
+                        <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} tickMargin={10} width={100} />
                         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
                         <Bar dataKey="value" radius={5}>
                         </Bar>

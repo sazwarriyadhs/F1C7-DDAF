@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -5,19 +7,37 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { staff } from "@/lib/data"
 import { MoreHorizontal, PlusCircle } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { useSettings } from "@/context/settings-context"
 
 export default function StaffPage() {
+  const { language } = useSettings();
+
+  const translations = {
+      title: { id: "Manajemen Staf", en: "Staff Management" },
+      description: { id: "Kelola akun terapis, pelatih, dan admin.", en: "Manage therapist, coach, and admin accounts." },
+      addStaff: { id: "Tambah Staf", en: "Add Staff" },
+      name: { id: "Nama", en: "Name" },
+      role: { id: "Peran", en: "Role" },
+      email: { id: "Email", en: "Email" },
+      phone: { id: "Telepon", en: "Phone" },
+      actions: { id: "Tindakan", en: "Actions" },
+      edit: { id: "Ubah", en: "Edit" },
+      viewSchedule: { id: "Lihat Jadwal", en: "View Schedule" },
+      deactivate: { id: "Nonaktifkan", en: "Deactivate" },
+      toggleMenu: { id: "Alihkan menu", en: "Toggle menu" },
+  };
+
   return (
     <Card>
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle>Staff Management</CardTitle>
-            <CardDescription>Manage therapist, coach, and admin accounts.</CardDescription>
+            <CardTitle>{translations.title[language]}</CardTitle>
+            <CardDescription>{translations.description[language]}</CardDescription>
           </div>
           <Button size="sm" className="gap-1">
             <PlusCircle className="h-4 w-4" />
-            Add Staff
+            {translations.addStaff[language]}
           </Button>
         </div>
       </CardHeader>
@@ -25,11 +45,11 @@ export default function StaffPage() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Phone</TableHead>
-              <TableHead><span className="sr-only">Actions</span></TableHead>
+              <TableHead>{translations.name[language]}</TableHead>
+              <TableHead>{translations.role[language]}</TableHead>
+              <TableHead>{translations.email[language]}</TableHead>
+              <TableHead>{translations.phone[language]}</TableHead>
+              <TableHead><span className="sr-only">{translations.actions[language]}</span></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -46,15 +66,15 @@ export default function StaffPage() {
                     <DropdownMenuTrigger asChild>
                       <Button aria-haspopup="true" size="icon" variant="ghost">
                         <MoreHorizontal className="h-4 w-4" />
-                        <span className="sr-only">Toggle menu</span>
+                        <span className="sr-only">{translations.toggleMenu[language]}</span>
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                      <DropdownMenuItem>View Schedule</DropdownMenuItem>
+                      <DropdownMenuLabel>{translations.actions[language]}</DropdownMenuLabel>
+                      <DropdownMenuItem>{translations.edit[language]}</DropdownMenuItem>
+                      <DropdownMenuItem>{translations.viewSchedule[language]}</DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-destructive">Deactivate</DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">{translations.deactivate[language]}</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

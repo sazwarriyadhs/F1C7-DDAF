@@ -1,4 +1,4 @@
-import { CalendarIcon } from "lucide-react";
+import type { ChartConfig } from "@/components/ui/chart"
 
 export const dailyRevenueData = [
   { date: "Mon", revenue: 2000 },
@@ -10,20 +10,29 @@ export const dailyRevenueData = [
   { date: "Sun", revenue: 3200 },
 ];
 
-export const popularServicesData = [
-  { name: "Swedish Massage", value: 400, fill: "var(--color-massage)" },
-  { name: "Facial", value: 300, fill: "var(--color-facial)" },
-  { name: "Balinese Massage", value: 300, fill: "var(--color-pilates)" },
-  { name: "Sauna", value: 200, fill: "var(--color-sauna)" },
-];
+export const getPopularServicesData = (lang: 'id' | 'en') => {
+    const names = {
+        'swedish-massage': { id: "Pijat Swedia", en: "Swedish Massage" },
+        'facial': { id: "Facial", en: "Facial" },
+        'balinese-massage': { id: "Pijat Bali", en: "Balinese Massage" },
+        'sauna': { id: "Sauna", en: "Sauna" },
+    }
+    return [
+      { id: 'swedish-massage', name: names['swedish-massage'][lang], value: 400, fill: "var(--color-massage)" },
+      { id: 'facial', name: names['facial'][lang], value: 300, fill: "var(--color-facial)" },
+      { id: 'balinese-massage', name: names['balinese-massage'][lang], value: 300, fill: "var(--color-pilates)" },
+      { id: 'sauna', name: names['sauna'][lang], value: 200, fill: "var(--color-sauna)" },
+    ];
+};
 
 export const chartConfig = {
-  revenue: { label: "Revenue", color: "hsl(var(--chart-1))" },
+  revenue: { label: "Revenue" },
   massage: { label: "Swedish Massage", color: "hsl(var(--chart-1))" },
   pilates: { label: "Balinese Massage", color: "hsl(var(--chart-2))" },
   facial: { label: "Facial", color: "hsl(var(--chart-3))" },
   sauna: { label: "Sauna", color: "hsl(var(--chart-4))" },
-};
+} satisfies ChartConfig;
+
 
 export const appointments = [
     { id: "APP001", client: "Sophia Davis", service: "Deep Tissue Massage", date: "2024-08-15", time: "10:00 AM", status: "Confirmed" },
@@ -35,142 +44,208 @@ export const appointments = [
 
 export const serviceCategories = [
     {
-        category: "Terapi Fisik & Tubuh (Physical Wellness Therapy)",
+        category: {
+            id: "Terapi Fisik & Tubuh (Physical Wellness Therapy)",
+            en: "Physical Wellness Therapy"
+        },
         emoji: "💪",
-        description: "Fokus pada kesehatan tubuh secara langsung, seperti kekuatan, postur, fleksibilitas, dan metabolisme.",
+        description: {
+            id: "Fokus pada kesehatan tubuh secara langsung, seperti kekuatan, postur, fleksibilitas, dan metabolisme.",
+            en: "Focuses on direct body health, such as strength, posture, flexibility, and metabolism."
+        },
         services: [
-            { title: "Swedish Massage", description: "Pijat terapi untuk relaksasi dan sirkulasi.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "swedish massage" },
-            { title: "Thai Massage", description: "Peregangan dan tekanan untuk fleksibilitas.", price: 170000, duration: "90 min", image: "https://placehold.co/600x400", hint: "thai massage" },
-            { title: "Deep Tissue Massage", description: "Fokus pada otot dalam dan jaringan ikat.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "deep tissue" },
-            { title: "Shiatsu Massage", description: "Pijatan tekanan jari khas Jepang.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "shiatsu massage" },
-            { title: "Lymphatic Drainage", description: "Pijatan lembut untuk mengurangi pembengkakan.", price: 190000, duration: "75 min", image: "https://placehold.co/600x400", hint: "lymphatic drainage" },
-            { title: "Physiotherapy (Fisioterapi)", description: "Pemulihan fungsi otot dan sendi.", price: 250000, duration: "60 min", image: "https://placehold.co/600x400", hint: "physiotherapy" },
-            { title: "Chiropractic", description: "Penyesuaian tulang belakang untuk kesehatan saraf.", price: 300000, duration: "45 min", image: "https://placehold.co/600x400", hint: "chiropractic" },
-            { title: "Osteopathy", description: "Terapi tulang, otot, dan sendi secara menyeluruh.", price: 280000, duration: "60 min", image: "https://placehold.co/600x400", hint: "osteopathy" },
-            { title: "Pilates / Yoga Therapy", description: "Latihan untuk postur, fleksibilitas, dan pernapasan.", price: 120000, duration: "60 min", image: "https://placehold.co/600x400", hint: "yoga therapy" },
-            { title: "Acupuncture / Acupressure", description: "Teknik Cina kuno menggunakan jarum atau tekanan.", price: 200000, duration: "60 min", image: "https://placehold.co/600x400", hint: "acupuncture" },
+            { title: { id: "Swedish Massage", en: "Swedish Massage" }, description: { id: "Pijat terapi untuk relaksasi dan sirkulasi.", en: "Therapeutic massage for relaxation and circulation." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "swedish massage" },
+            { title: { id: "Thai Massage", en: "Thai Massage" }, description: { id: "Peregangan dan tekanan untuk fleksibilitas.", en: "Stretching and pressure for flexibility." }, price_idr: 170000, price_usd: 11, duration: "90 min", image: "https://placehold.co/600x400", hint: "thai massage" },
+            { title: { id: "Deep Tissue Massage", en: "Deep Tissue Massage" }, description: { id: "Fokus pada otot dalam dan jaringan ikat.", en: "Focuses on deep muscles and connective tissue." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "deep tissue" },
+            { title: { id: "Shiatsu Massage", en: "Shiatsu Massage" }, description: { id: "Pijatan tekanan jari khas Jepang.", en: "Japanese finger pressure massage." }, price_idr: 160000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "shiatsu massage" },
+            { title: { id: "Lymphatic Drainage", en: "Lymphatic Drainage" }, description: { id: "Pijatan lembut untuk mengurangi pembengkakan.", en: "Gentle massage to reduce swelling." }, price_idr: 190000, price_usd: 13, duration: "75 min", image: "https://placehold.co/600x400", hint: "lymphatic drainage" },
+            { title: { id: "Physiotherapy (Fisioterapi)", en: "Physiotherapy" }, description: { id: "Pemulihan fungsi otot dan sendi.", en: "Recovery of muscle and joint function." }, price_idr: 250000, price_usd: 17, duration: "60 min", image: "https://placehold.co/600x400", hint: "physiotherapy" },
+            { title: { id: "Chiropractic", en: "Chiropractic" }, description: { id: "Penyesuaian tulang belakang untuk kesehatan saraf.", en: "Spinal adjustments for nerve health." }, price_idr: 300000, price_usd: 20, duration: "45 min", image: "https://placehold.co/600x400", hint: "chiropractic" },
+            { title: { id: "Osteopathy", en: "Osteopathy" }, description: { id: "Terapi tulang, otot, dan sendi secara menyeluruh.", en: "Holistic therapy for bones, muscles, and joints." }, price_idr: 280000, price_usd: 19, duration: "60 min", image: "https://placehold.co/600x400", hint: "osteopathy" },
+            { title: { id: "Pilates / Yoga Therapy", en: "Pilates / Yoga Therapy" }, description: { id: "Latihan untuk postur, fleksibilitas, dan pernapasan.", en: "Exercises for posture, flexibility, and breathing." }, price_idr: 120000, price_usd: 8, duration: "60 min", image: "https://placehold.co/600x400", hint: "yoga therapy" },
+            { title: { id: "Acupuncture / Acupressure", en: "Acupuncture / Acupressure" }, description: { id: "Teknik Cina kuno menggunakan jarum atau tekanan.", en: "Ancient Chinese technique using needles or pressure." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "acupuncture" },
         ]
     },
     {
-        category: "Terapi Mental & Emosional (Mental & Emotional Wellness Therapy)",
+        category: {
+            id: "Terapi Mental & Emosional (Mental & Emotional Wellness Therapy)",
+            en: "Mental & Emotional Wellness Therapy"
+        },
         emoji: "🧠",
-        description: "Menangani stres, kecemasan, trauma, burnout, dan ketidakseimbangan psikologis.",
+        description: {
+            id: "Menangani stres, kecemasan, trauma, burnout, dan ketidakseimbangan psikologis.",
+            en: "Addresses stress, anxiety, trauma, burnout, and psychological imbalances."
+        },
         services: [
-            { title: "Mindfulness & Meditation", description: "Teknik kesadaran diri dan ketenangan.", price: 80000, duration: "45 min", image: "https://placehold.co/600x400", hint: "meditation mindfulness" },
-            { title: "Cognitive Behavioral Therapy (CBT)", description: "Mengubah pola pikir negatif.", price: 400000, duration: "60 min", image: "https://placehold.co/600x400", hint: "therapy session" },
-            { title: "Hypnotherapy (Hipnoterapi)", description: "Membantu pemrograman ulang pikiran bawah sadar.", price: 350000, duration: "75 min", image: "https://placehold.co/600x400", hint: "hypnotherapy" },
-            { title: "Breathwork Therapy", description: "Terapi pernapasan untuk relaksasi dan pelepasan emosi.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "breathwork" },
-            { title: "Emotional Freedom Technique (EFT)", description: "Ketukan ringan pada titik-titik energi.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "eft tapping" },
-            { title: "Art Therapy / Music Therapy", description: "Ekspresi emosi melalui seni.", price: 220000, duration: "90 min", image: "https://placehold.co/600x400", hint: "art therapy" },
+            { title: { id: "Mindfulness & Meditation", en: "Mindfulness & Meditation" }, description: { id: "Teknik kesadaran diri dan ketenangan.", en: "Self-awareness and calming techniques." }, price_idr: 80000, price_usd: 5, duration: "45 min", image: "https://placehold.co/600x400", hint: "meditation mindfulness" },
+            { title: { id: "Cognitive Behavioral Therapy (CBT)", en: "Cognitive Behavioral Therapy (CBT)" }, description: { id: "Mengubah pola pikir negatif.", en: "Changing negative thought patterns." }, price_idr: 400000, price_usd: 27, duration: "60 min", image: "https://placehold.co/600x400", hint: "therapy session" },
+            { title: { id: "Hypnotherapy (Hipnoterapi)", en: "Hypnotherapy" }, description: { id: "Membantu pemrograman ulang pikiran bawah sadar.", en: "Helps reprogram the subconscious mind." }, price_idr: 350000, price_usd: 24, duration: "75 min", image: "https://placehold.co/600x400", hint: "hypnotherapy" },
+            { title: { id: "Breathwork Therapy", en: "Breathwork Therapy" }, description: { id: "Terapi pernapasan untuk relaksasi dan pelepasan emosi.", en: "Breathing therapy for relaxation and emotional release." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "breathwork" },
+            { title: { id: "Emotional Freedom Technique (EFT)", en: "Emotional Freedom Technique (EFT)" }, description: { id: "Ketukan ringan pada titik-titik energi.", en: "Light tapping on energy points." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "eft tapping" },
+            { title: { id: "Art Therapy / Music Therapy", en: "Art Therapy / Music Therapy" }, description: { id: "Ekspresi emosi melalui seni.", en: "Emotional expression through art." }, price_idr: 220000, price_usd: 15, duration: "90 min", image: "https://placehold.co/600x400", hint: "art therapy" },
         ]
     },
     {
-        category: "Terapi Relaksasi & Pemulihan (Relaxation & Recovery Therapy)",
+        category: {
+            id: "Terapi Relaksasi & Pemulihan (Relaxation & Recovery Therapy)",
+            en: "Relaxation & Recovery Therapy"
+        },
         emoji: "💆‍♀️",
-        description: "Membantu tubuh dan pikiran untuk pulih dari stres atau kelelahan.",
+        description: {
+            id: "Membantu tubuh dan pikiran untuk pulih dari stres atau kelelahan.",
+            en: "Helps the body and mind recover from stress or fatigue."
+        },
         services: [
-            { title: "Aromatherapy", description: "Penggunaan minyak esensial untuk relaksasi.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "aromatherapy" },
-            { title: "Sound Healing / Sound Bath", description: "Terapi suara menggunakan gong, singing bowl.", price: 110000, duration: "50 min", image: "https://placehold.co/600x400", hint: "sound bath" },
-            { title: "Floatation Therapy (Sensory Deprivation)", description: "Terapi mengapung di air garam.", price: 250000, duration: "60 min", image: "https://placehold.co/600x400", hint: "float tank" },
-            { title: "Sleep Therapy", description: "Teknik meningkatkan kualitas tidur.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "sleep therapy" },
-            { title: "Thermal & Hydrotherapy", description: "Sauna, uap, mandi air hangat/dingin.", price: 100000, duration: "45 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
+            { title: { id: "Aromatherapy", en: "Aromatherapy" }, description: { id: "Penggunaan minyak esensial untuk relaksasi.", en: "Use of essential oils for relaxation." }, price_idr: 160000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "aromatherapy" },
+            { title: { id: "Sound Healing / Sound Bath", en: "Sound Healing / Sound Bath" }, description: { id: "Terapi suara menggunakan gong, singing bowl.", en: "Sound therapy using gongs, singing bowls." }, price_idr: 110000, price_usd: 7, duration: "50 min", image: "https://placehold.co/600x400", hint: "sound bath" },
+            { title: { id: "Floatation Therapy (Sensory Deprivation)", en: "Floatation Therapy (Sensory Deprivation)" }, description: { id: "Terapi mengapung di air garam.", en: "Floating therapy in salt water." }, price_idr: 250000, price_usd: 17, duration: "60 min", image: "https://placehold.co/600x400", hint: "float tank" },
+            { title: { id: "Sleep Therapy", en: "Sleep Therapy" }, description: { id: "Teknik meningkatkan kualitas tidur.", en: "Techniques to improve sleep quality." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "sleep therapy" },
+            { title: { id: "Thermal & Hydrotherapy", en: "Thermal & Hydrotherapy" }, description: { id: "Sauna, uap, mandi air hangat/dingin.", en: "Sauna, steam, hot/cold baths." }, price_idr: 100000, price_usd: 7, duration: "45 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
         ]
     },
     {
-        category: "Terapi Detoks & Metabolik (Detox & Internal Wellness Therapy)",
+        category: {
+            id: "Terapi Detoks & Metabolik (Detox & Internal Wellness Therapy)",
+            en: "Detox & Internal Wellness Therapy"
+        },
         emoji: "🧬",
-        description: "Membersihkan tubuh dari racun dan meningkatkan metabolisme secara alami.",
+        description: {
+            id: "Membersihkan tubuh dari racun dan meningkatkan metabolisme secara alami.",
+            en: "Cleanses the body of toxins and naturally boosts metabolism."
+        },
         services: [
-            { title: "Colon Hydrotherapy", description: "Pembersihan usus besar.", price: 500000, duration: "75 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
-            { title: "Juice Fasting / Detox Program", description: "Diet berbasis jus dan makanan sehat.", price: 300000, duration: "Program", image: "https://placehold.co/600x400", hint: "juice detox" },
-            { title: "Infrared Sauna", description: "Mengeluarkan racun lewat keringat.", price: 150000, duration: "45 min", image: "https://placehold.co/600x400", hint: "infrared sauna" },
-            { title: "Liver / Kidney Detox Programs", description: "Pembersihan organ-organ vital.", price: 350000, duration: "Program", image: "https://placehold.co/600x400", hint: "detox program" },
-            { title: "Ayurvedic Panchakarma", description: "Protokol pembersihan dalam ayurveda.", price: 700000, duration: "Program", image: "https://placehold.co/600x400", hint: "ayurvedic treatment" },
+            { title: { id: "Colon Hydrotherapy", en: "Colon Hydrotherapy" }, description: { id: "Pembersihan usus besar.", en: "Cleansing of the large intestine." }, price_idr: 500000, price_usd: 34, duration: "75 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
+            { title: { id: "Juice Fasting / Detox Program", en: "Juice Fasting / Detox Program" }, description: { id: "Diet berbasis jus dan makanan sehat.", en: "Diet based on juices and healthy foods." }, price_idr: 300000, price_usd: 20, duration: "Program", image: "https://placehold.co/600x400", hint: "juice detox" },
+            { title: { id: "Infrared Sauna", en: "Infrared Sauna" }, description: { id: "Mengeluarkan racun lewat keringat.", en: "Expels toxins through sweat." }, price_idr: 150000, price_usd: 10, duration: "45 min", image: "https://placehold.co/600x400", hint: "infrared sauna" },
+            { title: { id: "Liver / Kidney Detox Programs", en: "Liver / Kidney Detox Programs" }, description: { id: "Pembersihan organ-organ vital.", en: "Cleansing of vital organs." }, price_idr: 350000, price_usd: 24, duration: "Program", image: "https://placehold.co/600x400", hint: "detox program" },
+            { title: { id: "Ayurvedic Panchakarma", en: "Ayurvedic Panchakarma" }, description: { id: "Protokol pembersihan dalam ayurveda.", en: "Cleansing protocol in Ayurveda." }, price_idr: 700000, price_usd: 47, duration: "Program", image: "https://placehold.co/600x400", hint: "ayurvedic treatment" },
         ]
     },
     {
-        category: "Terapi Holistik & Tradisional (Holistic & Traditional Wellness Therapy)",
+        category: {
+            id: "Terapi Holistik & Tradisional (Holistic & Traditional Wellness Therapy)",
+            en: "Holistic & Traditional Wellness Therapy"
+        },
         emoji: "🌿",
-        description: "Pendekatan menyeluruh yang menggabungkan tubuh, pikiran, dan jiwa.",
+        description: {
+            id: "Pendekatan menyeluruh yang menggabungkan tubuh, pikiran, dan jiwa.",
+            en: "A holistic approach that combines body, mind, and spirit."
+        },
         services: [
-            { title: "Ayurveda Therapy", description: "Terapi India kuno berdasarkan keseimbangan dosha.", price: 220000, duration: "90 min", image: "https://placehold.co/600x400", hint: "ayurveda" },
-            { title: "Traditional Chinese Medicine (TCM)", description: "Akupunktur, herbal, dan qigong.", price: 250000, duration: "75 min", image: "https://placehold.co/600x400", hint: "chinese medicine" },
-            { title: "Reiki / Energy Healing", description: "Penyaluran energi penyembuhan.", price: 130000, duration: "60 min", image: "https://placehold.co/600x400", hint: "reiki healing" },
-            { title: "Jamu / Herbal Therapy", description: "Ramuan tradisional Indonesia.", price: 180000, duration: "90 min", image: "https://placehold.co/600x400", hint: "herbal therapy" },
-            { title: "Shamanic Healing", description: "Penyembuhan spiritual dari tradisi asli.", price: 400000, duration: "90 min", image: "https://placehold.co/600x400", hint: "shamanic healing" },
-            { title: "Crystal Healing", description: "Terapi menggunakan batu kristal.", price: 140000, duration: "60 min", image: "https://placehold.co/600x400", hint: "crystal healing" },
+            { title: { id: "Ayurveda Therapy", en: "Ayurveda Therapy" }, description: { id: "Terapi India kuno berdasarkan keseimbangan dosha.", en: "Ancient Indian therapy based on dosha balance." }, price_idr: 220000, price_usd: 15, duration: "90 min", image: "https://placehold.co/600x400", hint: "ayurveda" },
+            { title: { id: "Traditional Chinese Medicine (TCM)", en: "Traditional Chinese Medicine (TCM)" }, description: { id: "Akupunktur, herbal, dan qigong.", en: "Acupuncture, herbs, and qigong." }, price_idr: 250000, price_usd: 17, duration: "75 min", image: "https://placehold.co/600x400", hint: "chinese medicine" },
+            { title: { id: "Reiki / Energy Healing", en: "Reiki / Energy Healing" }, description: { id: "Penyaluran energi penyembuhan.", en: "Channeling of healing energy." }, price_idr: 130000, price_usd: 9, duration: "60 min", image: "https://placehold.co/600x400", hint: "reiki healing" },
+            { title: { id: "Jamu / Herbal Therapy", en: "Jamu / Herbal Therapy" }, description: { id: "Ramuan tradisional Indonesia.", en: "Traditional Indonesian herbal remedies." }, price_idr: 180000, price_usd: 12, duration: "90 min", image: "https://placehold.co/600x400", hint: "herbal therapy" },
+            { title: { id: "Shamanic Healing", en: "Shamanic Healing" }, description: { id: "Penyembuhan spiritual dari tradisi asli.", en: "Spiritual healing from indigenous traditions." }, price_idr: 400000, price_usd: 27, duration: "90 min", image: "https://placehold.co/600x400", hint: "shamanic healing" },
+            { title: { id: "Crystal Healing", en: "Crystal Healing" }, description: { id: "Terapi menggunakan batu kristal.", en: "Therapy using crystal stones." }, price_idr: 140000, price_usd: 9, duration: "60 min", image: "https://placehold.co/600x400", hint: "crystal healing" },
         ]
     },
     {
-        category: "Terapi Nutrisi & Gaya Hidup (Nutrition & Lifestyle Wellness Therapy)",
+        category: {
+            id: "Terapi Nutrisi & Gaya Hidup (Nutrition & Lifestyle Wellness Therapy)",
+            en: "Nutrition & Lifestyle Wellness Therapy"
+        },
         emoji: "🍽️",
-        description: "Mengatur pola makan, kebiasaan hidup, dan kebugaran.",
+        description: {
+            id: "Mengatur pola makan, kebiasaan hidup, dan kebugaran.",
+            en: "Manages diet, lifestyle habits, and fitness."
+        },
         services: [
-            { title: "Nutritional Counseling", description: "Konsultasi gizi dan suplemen.", price: 250000, duration: "60 min", image: "https://placehold.co/600x400", hint: "nutritionist" },
-            { title: "Weight Management Programs", description: "Program manajemen berat badan.", price: 500000, duration: "Program", image: "https://placehold.co/600x400", hint: "weight management" },
-            { title: "Functional Medicine", description: "Identifikasi akar masalah kesehatan.", price: 600000, duration: "90 min", image: "https://placehold.co/600x400", hint: "functional medicine" },
-            { title: "Personal Coaching / Health Coaching", description: "Panduan hidup sehat jangka panjang.", price: 450000, duration: "60 min", image: "https://placehold.co/600x400", hint: "health coach" },
-            { title: "Fitness Therapy / Exercise Therapy", description: "Olahraga disesuaikan kondisi individu.", price: 200000, duration: "60 min", image: "https://placehold.co/600x400", hint: "fitness" },
+            { title: { id: "Nutritional Counseling", en: "Nutritional Counseling" }, description: { id: "Konsultasi gizi dan suplemen.", en: "Nutrition and supplement consultation." }, price_idr: 250000, price_usd: 17, duration: "60 min", image: "https://placehold.co/600x400", hint: "nutritionist" },
+            { title: { id: "Weight Management Programs", en: "Weight Management Programs" }, description: { id: "Program manajemen berat badan.", en: "Weight management programs." }, price_idr: 500000, price_usd: 34, duration: "Program", image: "https://placehold.co/600x400", hint: "weight management" },
+            { title: { id: "Functional Medicine", en: "Functional Medicine" }, description: { id: "Identifikasi akar masalah kesehatan.", en: "Identifies the root cause of health issues." }, price_idr: 600000, price_usd: 40, duration: "90 min", image: "https://placehold.co/600x400", hint: "functional medicine" },
+            { title: { id: "Personal Coaching / Health Coaching", en: "Personal Coaching / Health Coaching" }, description: { id: "Panduan hidup sehat jangka panjang.", en: "Long-term healthy living guidance." }, price_idr: 450000, price_usd: 30, duration: "60 min", image: "https://placehold.co/600x400", hint: "health coach" },
+            { title: { id: "Fitness Therapy / Exercise Therapy", en: "Fitness Therapy / Exercise Therapy" }, description: { id: "Olahraga disesuaikan kondisi individu.", en: "Exercise tailored to individual conditions." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "fitness" },
         ]
     },
     {
-        category: "Terapi Spiritualitas & Kesadaran Diri (Spiritual & Consciousness Therapy)",
+        category: {
+            id: "Terapi Spiritualitas & Kesadaran Diri (Spiritual & Consciousness Therapy)",
+            en: "Spiritual & Consciousness Therapy"
+        },
         emoji: "🧘",
-        description: "Fokus pada pertumbuhan jiwa, koneksi diri, dan makna hidup.",
+        description: {
+            id: "Fokus pada pertumbuhan jiwa, koneksi diri, dan makna hidup.",
+            en: "Focuses on soul growth, self-connection, and the meaning of life."
+        },
         services: [
-            { title: "Spiritual Counseling", description: "Konseling berdasarkan nilai spiritual.", price: 300000, duration: "60 min", image: "https://placehold.co/600x400", hint: "spiritual counseling" },
-            { title: "Silent Retreat / Digital Detox", description: "Melepaskan diri dari distraksi dunia luar.", price: 800000, duration: "Program", image: "https://placehold.co/600x400", hint: "silent retreat" },
-            { title: "Chakra Balancing", description: "Menyeimbangkan pusat energi dalam tubuh.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "chakra balancing" },
-            { title: "Soul Journey / Regression Therapy", description: "Menyembuhkan melalui eksplorasi jiwa.", price: 450000, duration: "90 min", image: "https://placehold.co/600x400", hint: "regression therapy" },
-            { title: "Mantra & Prayer Healing", description: "Doa atau pengulangan mantra penyembuhan.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "prayer healing" },
+            { title: { id: "Spiritual Counseling", en: "Spiritual Counseling" }, description: { id: "Konseling berdasarkan nilai spiritual.", en: "Counseling based on spiritual values." }, price_idr: 300000, price_usd: 20, duration: "60 min", image: "https://placehold.co/600x400", hint: "spiritual counseling" },
+            { title: { id: "Silent Retreat / Digital Detox", en: "Silent Retreat / Digital Detox" }, description: { id: "Melepaskan diri dari distraksi dunia luar.", en: "Disconnecting from the distractions of the outside world." }, price_idr: 800000, price_usd: 54, duration: "Program", image: "https://placehold.co/600x400", hint: "silent retreat" },
+            { title: { id: "Chakra Balancing", en: "Chakra Balancing" }, description: { id: "Menyeimbangkan pusat energi dalam tubuh.", en: "Balancing the energy centers in the body." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "chakra balancing" },
+            { title: { id: "Soul Journey / Regression Therapy", en: "Soul Journey / Regression Therapy" }, description: { id: "Menyembuhkan melalui eksplorasi jiwa.", en: "Healing through soul exploration." }, price_idr: 450000, price_usd: 30, duration: "90 min", image: "https://placehold.co/600x400", hint: "regression therapy" },
+            { title: { id: "Mantra & Prayer Healing", en: "Mantra & Prayer Healing" }, description: { id: "Doa atau pengulangan mantra penyembuhan.", en: "Prayer or repetition of healing mantras." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "prayer healing" },
         ]
     },
 ];
 
 export const pilatesCategories = [
     {
-        category: "Berdasarkan Metode / Pendekatan",
+        category: {
+            id: "Berdasarkan Metode / Pendekatan",
+            en: "By Method / Approach"
+        },
         emoji: "✍️",
-        description: "Jenis Pilates berdasarkan gaya atau teknik yang dikembangkan dari metode Joseph Pilates.",
+        description: {
+            id: "Jenis Pilates berdasarkan gaya atau teknik yang dikembangkan dari metode Joseph Pilates.",
+            en: "Types of Pilates based on the style or technique developed from Joseph Pilates' method."
+        },
         types: [
-            { title: "Classical Pilates", description: "Mengikuti metode asli Joseph Pilates tanpa modifikasi. Urutan gerakannya tetap dan terstruktur. Menggabungkan Mat Pilates & alat (Reformer, Cadillac, Chair)." },
-            { title: "Contemporary Pilates", description: "Modifikasi dari metode klasik, dipadukan dengan ilmu anatomi modern dan fisioterapi. Lebih fleksibel, bisa disesuaikan dengan kondisi tubuh dan kebutuhan individu." },
-            { title: "Clinical Pilates", description: "Biasanya digunakan oleh fisioterapis untuk rehabilitasi cedera. Fokus pada koreksi postur, stabilitas tulang belakang, dan penyembuhan trauma tubuh." },
+            { title: { id: "Classical Pilates", en: "Classical Pilates" }, description: { id: "Mengikuti metode asli Joseph Pilates tanpa modifikasi. Urutan gerakannya tetap dan terstruktur. Menggabungkan Mat Pilates & alat (Reformer, Cadillac, Chair).", en: "Follows the original Joseph Pilates method without modification. The sequence of movements is fixed and structured. Combines Mat Pilates & equipment (Reformer, Cadillac, Chair)." } },
+            { title: { id: "Contemporary Pilates", en: "Contemporary Pilates" }, description: { id: "Modifikasi dari metode klasik, dipadukan dengan ilmu anatomi modern dan fisioterapi. Lebih fleksibel, bisa disesuaikan dengan kondisi tubuh dan kebutuhan individu.", en: "A modification of the classic method, combined with modern anatomy and physiotherapy. More flexible, can be adapted to the individual's body condition and needs." } },
+            { title: { id: "Clinical Pilates", en: "Clinical Pilates" }, description: { id: "Biasanya digunakan oleh fisioterapis untuk rehabilitasi cedera. Fokus pada koreksi postur, stabilitas tulang belakang, dan penyembuhan trauma tubuh.", en: "Usually used by physiotherapists for injury rehabilitation. Focuses on posture correction, spinal stability, and healing of body trauma." } },
         ]
     },
     {
-        category: "Berdasarkan Media / Peralatan",
+        category: {
+            id: "Berdasarkan Media / Peralatan",
+            en: "By Media / Equipment"
+        },
         emoji: "🏋️‍♀️",
-        description: "Jenis Pilates berdasarkan alat yang digunakan saat latihan.",
+        description: {
+            id: "Jenis Pilates berdasarkan alat yang digunakan saat latihan.",
+            en: "Types of Pilates based on the equipment used during the exercise."
+        },
         types: [
-            { title: "Mat Pilates", description: "Dilakukan di atas matras tanpa alat berat. Mengandalkan berat badan sendiri untuk kekuatan inti dan stabilitas. Cocok untuk pemula atau latihan di rumah." },
-            { title: "Reformer Pilates", description: "Menggunakan mesin Reformer: kerangka dengan papan geser, pegas, dan tali. Lebih dinamis dan bisa memberikan resistensi/dukungan tambahan. Cocok untuk semua level, termasuk rehabilitasi." },
-            { title: "Cadillac Pilates (Trapeze Table)", description: "Menggunakan alat besar dengan tiang, tali, dan pegas. Cocok untuk latihan terapeutik dan latihan lanjutan." },
-            { title: "Chair Pilates (Wunda Chair)", description: "Alat berbentuk kursi kecil dengan pedal resistensi. Menantang keseimbangan, kekuatan inti, dan koordinasi tubuh." },
-            { title: "Barrel Pilates (Spine Corrector / Ladder Barrel)", description: "Untuk latihan fleksibilitas, postur, dan penguatan punggung bagian atas dan bawah." },
+            { title: { id: "Mat Pilates", en: "Mat Pilates" }, description: { id: "Dilakukan di atas matras tanpa alat berat. Mengandalkan berat badan sendiri untuk kekuatan inti dan stabilitas. Cocok untuk pemula atau latihan di rumah.", en: "Performed on a mat without heavy equipment. Relies on one's own body weight for core strength and stability. Suitable for beginners or at-home workouts." } },
+            { title: { id: "Reformer Pilates", en: "Reformer Pilates" }, description: { id: "Menggunakan mesin Reformer: kerangka dengan papan geser, pegas, dan tali. Lebih dinamis dan bisa memberikan resistensi/dukungan tambahan. Cocok untuk semua level, termasuk rehabilitasi.", en: "Uses the Reformer machine: a frame with a sliding board, springs, and straps. More dynamic and can provide additional resistance/support. Suitable for all levels, including rehabilitation." } },
+            { title: { id: "Cadillac Pilates (Trapeze Table)", en: "Cadillac Pilates (Trapeze Table)" }, description: { id: "Menggunakan alat besar dengan tiang, tali, dan pegas. Cocok untuk latihan terapeutik dan latihan lanjutan.", en: "Uses a large apparatus with poles, straps, and springs. Suitable for therapeutic and advanced exercises." } },
+            { title: { id: "Chair Pilates (Wunda Chair)", en: "Chair Pilates (Wunda Chair)" }, description: { id: "Alat berbentuk kursi kecil dengan pedal resistensi. Menantang keseimbangan, kekuatan inti, dan koordinasi tubuh.", en: "A small chair-like apparatus with resistance pedals. Challenges balance, core strength, and body coordination." } },
+            { title: { id: "Barrel Pilates (Spine Corrector / Ladder Barrel)", en: "Barrel Pilates (Spine Corrector / Ladder Barrel)" }, description: { id: "Untuk latihan fleksibilitas, postur, dan penguatan punggung bagian atas dan bawah.", en: "For flexibility, posture, and strengthening of the upper and lower back." } },
         ]
     },
     {
-        category: "Berdasarkan Tujuan / Fokus Latihan",
+        category: {
+            id: "Berdasarkan Tujuan / Fokus Latihan",
+            en: "By Goal / Training Focus"
+        },
         emoji: "🎯",
-        description: "Jenis Pilates disesuaikan dengan kebutuhan peserta.",
+        description: {
+            id: "Jenis Pilates disesuaikan dengan kebutuhan peserta.",
+            en: "Types of Pilates tailored to the participant's needs."
+        },
         types: [
-             { title: "Rehab Pilates", description: "Fokus pada pemulihan cedera, gangguan tulang belakang, atau nyeri otot. Biasanya dipandu oleh fisioterapis atau pelatih berlisensi medis." },
-             { title: "Prenatal Pilates", description: "Dirancang untuk ibu hamil, membantu memperkuat otot panggul dan menjaga postur. Meningkatkan pernapasan, mengurangi nyeri punggung dan bengkak." },
-             { title: "Postnatal Pilates", description: "Untuk pemulihan pasca melahirkan. Fokus pada penguatan otot perut, panggul, dan punggung bawah." },
-             { title: "Athletic / Performance Pilates", description: "Dirancang untuk atlet atau penari. Menggabungkan gerakan Pilates untuk meningkatkan performa, fleksibilitas, dan mencegah cedera." },
-             { title: "Pilates for Seniors", description: "Fokus pada keseimbangan, fleksibilitas ringan, dan kekuatan untuk usia lanjut." },
+             { title: { id: "Rehab Pilates", en: "Rehab Pilates" }, description: { id: "Fokus pada pemulihan cedera, gangguan tulang belakang, atau nyeri otot. Biasanya dipandu oleh fisioterapis atau pelatih berlisensi medis.", en: "Focuses on injury recovery, spinal disorders, or muscle pain. Usually guided by a physiotherapist or medically licensed trainer." } },
+             { title: { id: "Prenatal Pilates", en: "Prenatal Pilates" }, description: { id: "Dirancang untuk ibu hamil, membantu memperkuat otot panggul dan menjaga postur. Meningkatkan pernapasan, mengurangi nyeri punggung dan bengkak.", en: "Designed for pregnant women, helps strengthen pelvic muscles and maintain posture. Improves breathing, reduces back pain and swelling." } },
+             { title: { id: "Postnatal Pilates", en: "Postnatal Pilates" }, description: { id: "Untuk pemulihan pasca melahirkan. Fokus pada penguatan otot perut, panggul, dan punggung bawah.", en: "For postpartum recovery. Focuses on strengthening the abdominal, pelvic, and lower back muscles." } },
+             { title: { id: "Athletic / Performance Pilates", en: "Athletic / Performance Pilates" }, description: { id: "Dirancang untuk atlet atau penari. Menggabungkan gerakan Pilates untuk meningkatkan performa, fleksibilitas, dan mencegah cedera.", en: "Designed for athletes or dancers. Combines Pilates movements to enhance performance, flexibility, and prevent injuries." } },
+             { title: { id: "Pilates for Seniors", en: "Pilates for Seniors" }, description: { id: "Fokus pada keseimbangan, fleksibilitas ringan, dan kekuatan untuk usia lanjut.", en: "Focuses on balance, light flexibility, and strength for seniors." } },
         ]
     },
     {
-        category: "Varian Fusion (Gabungan dengan Metode Lain)",
+        category: {
+            id: "Varian Fusion (Gabungan dengan Metode Lain)",
+            en: "Fusion Variants (Combined with Other Methods)"
+        },
         emoji: "💡",
-        description: "Beberapa studio menggabungkan Pilates dengan latihan modern:",
+        description: {
+            id: "Beberapa studio menggabungkan Pilates dengan latihan modern:",
+            en: "Some studios combine Pilates with modern exercises:"
+        },
         types: [
-            { title: "Pilates Yoga Fusion (PiYo)", description: "Gabungan gerakan Pilates dan Yoga." },
-            { title: "HIIT Pilates", description: "Pilates dengan intensitas tinggi dan interval." },
-            { title: "Barre Pilates", description: "Kombinasi Pilates, balet, dan cardio ringan." },
-            { title: "TRX Pilates", description: "Menggabungkan alat TRX (suspension training) untuk variasi latihan." },
+            { title: { id: "Pilates Yoga Fusion (PiYo)", en: "Pilates Yoga Fusion (PiYo)" }, description: { id: "Gabungan gerakan Pilates dan Yoga.", en: "A combination of Pilates and Yoga movements." } },
+            { title: { id: "HIIT Pilates", en: "HIIT Pilates" }, description: { id: "Pilates dengan intensitas tinggi dan interval.", en: "High-intensity interval Pilates." } },
+            { title: { id: "Barre Pilates", en: "Barre Pilates" }, description: { id: "Kombinasi Pilates, balet, dan cardio ringan.", en: "A combination of Pilates, ballet, and light cardio." } },
+            { title: { id: "TRX Pilates", en: "TRX Pilates" }, description: { id: "Menggabungkan alat TRX (suspension training) untuk variasi latihan.", en: "Combines TRX (suspension training) equipment for varied exercises." } },
         ]
     }
 ];
