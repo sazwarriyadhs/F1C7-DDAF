@@ -45,137 +45,131 @@ export const appointments = [
 export const serviceCategories = [
     {
         category: {
-            id: "Terapi Fisik & Tubuh (Physical Wellness Therapy)",
-            en: "Physical Wellness Therapy"
-        },
-        emoji: "💪",
-        description: {
-            id: "Fokus pada kesehatan tubuh secara langsung, seperti kekuatan, postur, fleksibilitas, dan metabolisme.",
-            en: "Focuses on direct body health, such as strength, posture, flexibility, and metabolism."
-        },
-        services: [
-            { title: { id: "Swedish Massage", en: "Swedish Massage" }, description: { id: "Pijat terapi untuk relaksasi dan sirkulasi.", en: "Therapeutic massage for relaxation and circulation." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "swedish massage" },
-            { title: { id: "Thai Massage", en: "Thai Massage" }, description: { id: "Peregangan dan tekanan untuk fleksibilitas.", en: "Stretching and pressure for flexibility." }, price_idr: 170000, price_usd: 11, duration: "90 min", image: "https://placehold.co/600x400", hint: "thai massage" },
-            { title: { id: "Deep Tissue Massage", en: "Deep Tissue Massage" }, description: { id: "Fokus pada otot dalam dan jaringan ikat.", en: "Focuses on deep muscles and connective tissue." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "deep tissue" },
-            { title: { id: "Shiatsu Massage", en: "Shiatsu Massage" }, description: { id: "Pijatan tekanan jari khas Jepang.", en: "Japanese finger pressure massage." }, price_idr: 160000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "shiatsu massage" },
-            { title: { id: "Lymphatic Drainage", en: "Lymphatic Drainage" }, description: { id: "Pijatan lembut untuk mengurangi pembengkakan.", en: "Gentle massage to reduce swelling." }, price_idr: 190000, price_usd: 13, duration: "75 min", image: "https://placehold.co/600x400", hint: "lymphatic drainage" },
-            { title: { id: "Physiotherapy (Fisioterapi)", en: "Physiotherapy" }, description: { id: "Pemulihan fungsi otot dan sendi.", en: "Recovery of muscle and joint function." }, price_idr: 250000, price_usd: 17, duration: "60 min", image: "https://placehold.co/600x400", hint: "physiotherapy" },
-            { title: { id: "Chiropractic", en: "Chiropractic" }, description: { id: "Penyesuaian tulang belakang untuk kesehatan saraf.", en: "Spinal adjustments for nerve health." }, price_idr: 300000, price_usd: 20, duration: "45 min", image: "https://placehold.co/600x400", hint: "chiropractic" },
-            { title: { id: "Osteopathy", en: "Osteopathy" }, description: { id: "Terapi tulang, otot, dan sendi secara menyeluruh.", en: "Holistic therapy for bones, muscles, and joints." }, price_idr: 280000, price_usd: 19, duration: "60 min", image: "https://placehold.co/600x400", hint: "osteopathy" },
-            { title: { id: "Pilates / Yoga Therapy", en: "Pilates / Yoga Therapy" }, description: { id: "Latihan untuk postur, fleksibilitas, dan pernapasan.", en: "Exercises for posture, flexibility, and breathing." }, price_idr: 120000, price_usd: 8, duration: "60 min", image: "https://placehold.co/600x400", hint: "yoga therapy" },
-            { title: { id: "Acupuncture / Acupressure", en: "Acupuncture / Acupressure" }, description: { id: "Teknik Cina kuno menggunakan jarum atau tekanan.", en: "Ancient Chinese technique using needles or pressure." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "acupuncture" },
-        ]
-    },
-    {
-        category: {
-            id: "Terapi Mental & Emosional (Mental & Emotional Wellness Therapy)",
-            en: "Mental & Emotional Wellness Therapy"
-        },
-        emoji: "🧠",
-        description: {
-            id: "Menangani stres, kecemasan, trauma, burnout, dan ketidakseimbangan psikologis.",
-            en: "Addresses stress, anxiety, trauma, burnout, and psychological imbalances."
-        },
-        services: [
-            { title: { id: "Mindfulness & Meditation", en: "Mindfulness & Meditation" }, description: { id: "Teknik kesadaran diri dan ketenangan.", en: "Self-awareness and calming techniques." }, price_idr: 80000, price_usd: 5, duration: "45 min", image: "https://placehold.co/600x400", hint: "meditation mindfulness" },
-            { title: { id: "Cognitive Behavioral Therapy (CBT)", en: "Cognitive Behavioral Therapy (CBT)" }, description: { id: "Mengubah pola pikir negatif.", en: "Changing negative thought patterns." }, price_idr: 400000, price_usd: 27, duration: "60 min", image: "https://placehold.co/600x400", hint: "therapy session" },
-            { title: { id: "Hypnotherapy (Hipnoterapi)", en: "Hypnotherapy" }, description: { id: "Membantu pemrograman ulang pikiran bawah sadar.", en: "Helps reprogram the subconscious mind." }, price_idr: 350000, price_usd: 24, duration: "75 min", image: "https://placehold.co/600x400", hint: "hypnotherapy" },
-            { title: { id: "Breathwork Therapy", en: "Breathwork Therapy" }, description: { id: "Terapi pernapasan untuk relaksasi dan pelepasan emosi.", en: "Breathing therapy for relaxation and emotional release." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "breathwork" },
-            { title: { id: "Emotional Freedom Technique (EFT)", en: "Emotional Freedom Technique (EFT)" }, description: { id: "Ketukan ringan pada titik-titik energi.", en: "Light tapping on energy points." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "eft tapping" },
-            { title: { id: "Art Therapy / Music Therapy", en: "Art Therapy / Music Therapy" }, description: { id: "Ekspresi emosi melalui seni.", en: "Emotional expression through art." }, price_idr: 220000, price_usd: 15, duration: "90 min", image: "https://placehold.co/600x400", hint: "art therapy" },
-        ]
-    },
-    {
-        category: {
-            id: "Terapi Relaksasi & Pemulihan (Relaxation & Recovery Therapy)",
-            en: "Relaxation & Recovery Therapy"
+            id: "Terapi Pijat / Massage Therapy",
+            en: "Massage Therapy"
         },
         emoji: "💆‍♀️",
         description: {
-            id: "Membantu tubuh dan pikiran untuk pulih dari stres atau kelelahan.",
-            en: "Helps the body and mind recover from stress or fatigue."
+            id: "Terapi untuk relaksasi otot, sirkulasi darah, dan keseimbangan energi tubuh.",
+            en: "Therapy for muscle relaxation, blood circulation, and body energy balance."
         },
         services: [
-            { title: { id: "Aromatherapy", en: "Aromatherapy" }, description: { id: "Penggunaan minyak esensial untuk relaksasi.", en: "Use of essential oils for relaxation." }, price_idr: 160000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "aromatherapy" },
-            { title: { id: "Sound Healing / Sound Bath", en: "Sound Healing / Sound Bath" }, description: { id: "Terapi suara menggunakan gong, singing bowl.", en: "Sound therapy using gongs, singing bowls." }, price_idr: 110000, price_usd: 7, duration: "50 min", image: "https://placehold.co/600x400", hint: "sound bath" },
-            { title: { id: "Floatation Therapy (Sensory Deprivation)", en: "Floatation Therapy (Sensory Deprivation)" }, description: { id: "Terapi mengapung di air garam.", en: "Floating therapy in salt water." }, price_idr: 250000, price_usd: 17, duration: "60 min", image: "https://placehold.co/600x400", hint: "float tank" },
-            { title: { id: "Sleep Therapy", en: "Sleep Therapy" }, description: { id: "Teknik meningkatkan kualitas tidur.", en: "Techniques to improve sleep quality." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "sleep therapy" },
-            { title: { id: "Thermal & Hydrotherapy", en: "Thermal & Hydrotherapy" }, description: { id: "Sauna, uap, mandi air hangat/dingin.", en: "Sauna, steam, hot/cold baths." }, price_idr: 100000, price_usd: 7, duration: "45 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
+            { title: { id: "Swedish Massage", en: "Swedish Massage" }, description: { id: "Pijatan ringan dengan gerakan panjang dan memutar.", en: "Light massage with long, circular strokes." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "swedish massage" },
+            { title: { id: "Deep Tissue Massage", en: "Deep Tissue Massage" }, description: { id: "Fokus pada otot dalam dan jaringan ikat.", en: "Focuses on deep muscles and connective tissue." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "deep tissue" },
+            { title: { id: "Thai Massage", en: "Thai Massage" }, description: { id: "Kombinasi peregangan dan tekanan tubuh.", en: "Combination of stretching and body pressure." }, price_idr: 170000, price_usd: 11, duration: "90 min", image: "https://placehold.co/600x400", hint: "thai massage" },
+            { title: { id: "Shiatsu Massage", en: "Shiatsu Massage" }, description: { id: "Pijatan tekanan jari khas Jepang.", en: "Japanese finger pressure massage." }, price_idr: 160000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "shiatsu massage" },
+            { title: { id: "Balinese Massage", en: "Balinese Massage" }, description: { id: "Perpaduan pijat tradisional Bali dengan aromaterapi.", en: "A blend of traditional Balinese massage and aromatherapy." }, price_idr: 160000, price_usd: 11, duration: "75 min", image: "https://placehold.co/600x400", hint: "balinese massage" },
+            { title: { id: "Hot Stone Massage", en: "Hot Stone Massage" }, description: { id: "Menggunakan batu panas untuk relaksasi otot.", en: "Uses hot stones for muscle relaxation." }, price_idr: 200000, price_usd: 14, duration: "90 min", image: "https://placehold.co/600x400", hint: "hot stone" },
+            { title: { id: "Refleksiologi", en: "Reflexology" }, description: { id: "Menekan titik-titik di kaki, tangan, atau telinga untuk kesehatan seluruh tubuh.", en: "Pressing points on the feet, hands, or ears for whole-body health." }, price_idr: 120000, price_usd: 8, duration: "45 min", image: "https://placehold.co/600x400", hint: "reflexology" },
+            { title: { id: "Aromatherapy Massage", en: "Aromatherapy Massage" }, description: { id: "Menggunakan minyak esensial untuk relaksasi dan penyembuhan.", en: "Uses essential oils for relaxation and healing." }, price_idr: 160000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "aromatherapy" },
         ]
     },
     {
         category: {
-            id: "Terapi Detoks & Metabolik (Detox & Internal Wellness Therapy)",
-            en: "Detox & Internal Wellness Therapy"
-        },
-        emoji: "🧬",
-        description: {
-            id: "Membersihkan tubuh dari racun dan meningkatkan metabolisme secara alami.",
-            en: "Cleanses the body of toxins and naturally boosts metabolism."
-        },
-        services: [
-            { title: { id: "Colon Hydrotherapy", en: "Colon Hydrotherapy" }, description: { id: "Pembersihan usus besar.", en: "Cleansing of the large intestine." }, price_idr: 500000, price_usd: 34, duration: "75 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
-            { title: { id: "Juice Fasting / Detox Program", en: "Juice Fasting / Detox Program" }, description: { id: "Diet berbasis jus dan makanan sehat.", en: "Diet based on juices and healthy foods." }, price_idr: 300000, price_usd: 20, duration: "Program", image: "https://placehold.co/600x400", hint: "juice detox" },
-            { title: { id: "Infrared Sauna", en: "Infrared Sauna" }, description: { id: "Mengeluarkan racun lewat keringat.", en: "Expels toxins through sweat." }, price_idr: 150000, price_usd: 10, duration: "45 min", image: "https://placehold.co/600x400", hint: "infrared sauna" },
-            { title: { id: "Liver / Kidney Detox Programs", en: "Liver / Kidney Detox Programs" }, description: { id: "Pembersihan organ-organ vital.", en: "Cleansing of vital organs." }, price_idr: 350000, price_usd: 24, duration: "Program", image: "https://placehold.co/600x400", hint: "detox program" },
-            { title: { id: "Ayurvedic Panchakarma", en: "Ayurvedic Panchakarma" }, description: { id: "Protokol pembersihan dalam ayurveda.", en: "Cleansing protocol in Ayurveda." }, price_idr: 700000, price_usd: 47, duration: "Program", image: "https://placehold.co/600x400", hint: "ayurvedic treatment" },
-        ]
-    },
-    {
-        category: {
-            id: "Terapi Holistik & Tradisional (Holistic & Traditional Wellness Therapy)",
-            en: "Holistic & Traditional Wellness Therapy"
+            id: "Terapi Tubuh / Body Treatment",
+            en: "Body Treatment"
         },
         emoji: "🌿",
         description: {
-            id: "Pendekatan menyeluruh yang menggabungkan tubuh, pikiran, dan jiwa.",
-            en: "A holistic approach that combines body, mind, and spirit."
+            id: "Untuk detoksifikasi, perawatan kulit, dan penyegaran tubuh.",
+            en: "For detoxification, skin care, and body refreshment."
         },
         services: [
-            { title: { id: "Ayurveda Therapy", en: "Ayurveda Therapy" }, description: { id: "Terapi India kuno berdasarkan keseimbangan dosha.", en: "Ancient Indian therapy based on dosha balance." }, price_idr: 220000, price_usd: 15, duration: "90 min", image: "https://placehold.co/600x400", hint: "ayurveda" },
-            { title: { id: "Traditional Chinese Medicine (TCM)", en: "Traditional Chinese Medicine (TCM)" }, description: { id: "Akupunktur, herbal, dan qigong.", en: "Acupuncture, herbs, and qigong." }, price_idr: 250000, price_usd: 17, duration: "75 min", image: "https://placehold.co/600x400", hint: "chinese medicine" },
-            { title: { id: "Reiki / Energy Healing", en: "Reiki / Energy Healing" }, description: { id: "Penyaluran energi penyembuhan.", en: "Channeling of healing energy." }, price_idr: 130000, price_usd: 9, duration: "60 min", image: "https://placehold.co/600x400", hint: "reiki healing" },
-            { title: { id: "Jamu / Herbal Therapy", en: "Jamu / Herbal Therapy" }, description: { id: "Ramuan tradisional Indonesia.", en: "Traditional Indonesian herbal remedies." }, price_idr: 180000, price_usd: 12, duration: "90 min", image: "https://placehold.co/600x400", hint: "herbal therapy" },
-            { title: { id: "Shamanic Healing", en: "Shamanic Healing" }, description: { id: "Penyembuhan spiritual dari tradisi asli.", en: "Spiritual healing from indigenous traditions." }, price_idr: 400000, price_usd: 27, duration: "90 min", image: "https://placehold.co/600x400", hint: "shamanic healing" },
-            { title: { id: "Crystal Healing", en: "Crystal Healing" }, description: { id: "Terapi menggunakan batu kristal.", en: "Therapy using crystal stones." }, price_idr: 140000, price_usd: 9, duration: "60 min", image: "https://placehold.co/600x400", hint: "crystal healing" },
+            { title: { id: "Body Scrub (Lulur)", en: "Body Scrub" }, description: { id: "Pengelupasan kulit mati dengan scrub alami.", en: "Exfoliation of dead skin with natural scrubs." }, price_idr: 130000, price_usd: 9, duration: "45 min", image: "https://placehold.co/600x400", hint: "body scrub" },
+            { title: { id: "Body Wrap", en: "Body Wrap" }, description: { id: "Membungkus tubuh dengan lumpur, rumput laut, atau herbal.", en: "Wrapping the body with mud, seaweed, or herbs." }, price_idr: 220000, price_usd: 15, duration: "75 min", image: "https://placehold.co/600x400", hint: "body wrap" },
+            { title: { id: "Detox Treatment", en: "Detox Treatment" }, description: { id: "Mengeluarkan racun dari tubuh, sering dikombinasikan dengan sauna.", en: "Removes toxins from the body, often combined with a sauna." }, price_idr: 250000, price_usd: 17, duration: "90 min", image: "https://placehold.co/600x400", hint: "detox" },
+            { title: { id: "Parafango / Mud Therapy", en: "Parafango / Mud Therapy" }, description: { id: "Perawatan dengan lumpur mineral dan lilin.", en: "Treatment with mineral mud and wax." }, price_idr: 280000, price_usd: 19, duration: "60 min", image: "https://placehold.co/600x400", hint: "mud therapy" },
         ]
     },
     {
         category: {
-            id: "Terapi Nutrisi & Gaya Hidup (Nutrition & Lifestyle Wellness Therapy)",
-            en: "Nutrition & Lifestyle Wellness Therapy"
+            id: "Terapi Air / Hydrotherapy",
+            en: "Hydrotherapy"
         },
-        emoji: "🍽️",
+        emoji: "💧",
         description: {
-            id: "Mengatur pola makan, kebiasaan hidup, dan kebugaran.",
-            en: "Manages diet, lifestyle habits, and fitness."
+            id: "Menggunakan air untuk penyembuhan dan relaksasi.",
+            en: "Using water for healing and relaxation."
         },
         services: [
-            { title: { id: "Nutritional Counseling", en: "Nutritional Counseling" }, description: { id: "Konsultasi gizi dan suplemen.", en: "Nutrition and supplement consultation." }, price_idr: 250000, price_usd: 17, duration: "60 min", image: "https://placehold.co/600x400", hint: "nutritionist" },
-            { title: { id: "Weight Management Programs", en: "Weight Management Programs" }, description: { id: "Program manajemen berat badan.", en: "Weight management programs." }, price_idr: 500000, price_usd: 34, duration: "Program", image: "https://placehold.co/600x400", hint: "weight management" },
-            { title: { id: "Functional Medicine", en: "Functional Medicine" }, description: { id: "Identifikasi akar masalah kesehatan.", en: "Identifies the root cause of health issues." }, price_idr: 600000, price_usd: 40, duration: "90 min", image: "https://placehold.co/600x400", hint: "functional medicine" },
-            { title: { id: "Personal Coaching / Health Coaching", en: "Personal Coaching / Health Coaching" }, description: { id: "Panduan hidup sehat jangka panjang.", en: "Long-term healthy living guidance." }, price_idr: 450000, price_usd: 30, duration: "60 min", image: "https://placehold.co/600x400", hint: "health coach" },
-            { title: { id: "Fitness Therapy / Exercise Therapy", en: "Fitness Therapy / Exercise Therapy" }, description: { id: "Olahraga disesuaikan kondisi individu.", en: "Exercise tailored to individual conditions." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "fitness" },
+            { title: { id: "Jacuzzi / Whirlpool Bath", en: "Jacuzzi / Whirlpool Bath" }, description: { id: "Air hangat bertekanan untuk melemaskan otot.", en: "Pressurized warm water to relax muscles." }, price_idr: 100000, price_usd: 7, duration: "30 min", image: "https://placehold.co/600x400", hint: "jacuzzi" },
+            { title: { id: "Sauna", en: "Sauna" }, description: { id: "Ruangan panas kering yang merangsang keringat.", en: "A dry hot room that stimulates sweating." }, price_idr: 80000, price_usd: 5, duration: "30 min", image: "https://placehold.co/600x400", hint: "sauna" },
+            { title: { id: "Steam Room (Ruang Uap)", en: "Steam Room" }, description: { id: "Ruangan uap hangat untuk membuka pori dan detoksifikasi.", en: "A warm steam room to open pores and detoxify." }, price_idr: 80000, price_usd: 5, duration: "30 min", image: "https://placehold.co/600x400", hint: "steam room" },
+            { title: { id: "Vichy Shower", en: "Vichy Shower" }, description: { id: "Semburan air dari atas tempat tidur terapi untuk relaksasi.", en: "Water jets from above a therapy bed for relaxation." }, price_idr: 150000, price_usd: 10, duration: "20 min", image: "https://placehold.co/600x400", hint: "vichy shower" },
+            { title: { id: "Cold Plunge Pool", en: "Cold Plunge Pool" }, description: { id: "Kolam air dingin untuk stimulasi sirkulasi darah.", en: "A cold water pool to stimulate blood circulation." }, price_idr: 70000, price_usd: 5, duration: "15 min", image: "https://placehold.co/600x400", hint: "ice bath" },
         ]
     },
     {
         category: {
-            id: "Terapi Spiritualitas & Kesadaran Diri (Spiritual & Consciousness Therapy)",
-            en: "Spiritual & Consciousness Therapy"
+            id: "Terapi Kecantikan / Beauty Spa",
+            en: "Beauty Spa"
         },
-        emoji: "🧘",
+        emoji: "🌸",
         description: {
-            id: "Fokus pada pertumbuhan jiwa, koneksi diri, dan makna hidup.",
-            en: "Focuses on soul growth, self-connection, and the meaning of life."
+            id: "Fokus pada perawatan estetika.",
+            en: "Focuses on aesthetic treatments."
         },
         services: [
-            { title: { id: "Spiritual Counseling", en: "Spiritual Counseling" }, description: { id: "Konseling berdasarkan nilai spiritual.", en: "Counseling based on spiritual values." }, price_idr: 300000, price_usd: 20, duration: "60 min", image: "https://placehold.co/600x400", hint: "spiritual counseling" },
-            { title: { id: "Silent Retreat / Digital Detox", en: "Silent Retreat / Digital Detox" }, description: { id: "Melepaskan diri dari distraksi dunia luar.", en: "Disconnecting from the distractions of the outside world." }, price_idr: 800000, price_usd: 54, duration: "Program", image: "https://placehold.co/600x400", hint: "silent retreat" },
-            { title: { id: "Chakra Balancing", en: "Chakra Balancing" }, description: { id: "Menyeimbangkan pusat energi dalam tubuh.", en: "Balancing the energy centers in the body." }, price_idr: 180000, price_usd: 12, duration: "60 min", image: "https://placehold.co/600x400", hint: "chakra balancing" },
-            { title: { id: "Soul Journey / Regression Therapy", en: "Soul Journey / Regression Therapy" }, description: { id: "Menyembuhkan melalui eksplorasi jiwa.", en: "Healing through soul exploration." }, price_idr: 450000, price_usd: 30, duration: "90 min", image: "https://placehold.co/600x400", hint: "regression therapy" },
-            { title: { id: "Mantra & Prayer Healing", en: "Mantra & Prayer Healing" }, description: { id: "Doa atau pengulangan mantra penyembuhan.", en: "Prayer or repetition of healing mantras." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "prayer healing" },
+            { title: { id: "Facial", en: "Facial" }, description: { id: "Pembersihan dan perawatan wajah.", en: "Facial cleansing and treatment." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "facial treatment" },
+            { title: { id: "Anti-aging Facial", en: "Anti-aging Facial" }, description: { id: "Perawatan wajah untuk mengurangi kerutan.", en: "Facial treatment to reduce wrinkles." }, price_idr: 250000, price_usd: 17, duration: "75 min", image: "https://placehold.co/600x400", hint: "anti aging" },
+            { title: { id: "Acne Facial", en: "Acne Facial" }, description: { id: "Perawatan untuk kulit berjerawat.", en: "Treatment for acne-prone skin." }, price_idr: 220000, price_usd: 15, duration: "75 min", image: "https://placehold.co/600x400", hint: "acne treatment" },
+            { title: { id: "Manicure & Pedicure", en: "Manicure & Pedicure" }, description: { id: "Perawatan kuku tangan dan kaki.", en: "Hand and foot nail care." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "manicure pedicure" },
+            { title: { id: "Waxing / Sugaring", en: "Waxing / Sugaring" }, description: { id: "Penghilangan bulu tubuh.", en: "Body hair removal." }, price_idr: 180000, price_usd: 12, duration: "45 min", image: "https://placehold.co/600x400", hint: "waxing" },
+            { title: { id: "Hair Spa", en: "Hair Spa" }, description: { id: "Perawatan rambut dan kulit kepala.", en: "Hair and scalp treatment." }, price_idr: 170000, price_usd: 11, duration: "60 min", image: "https://placehold.co/600x400", hint: "hair spa" },
         ]
     },
+    {
+        category: {
+            id: "Terapi Energi & Relaksasi",
+            en: "Energy & Relaxation Therapy"
+        },
+        emoji: "☯️",
+        description: {
+            id: "Meningkatkan keseimbangan energi dan kesehatan mental.",
+            en: "Improves energy balance and mental health."
+        },
+        services: [
+            { title: { id: "Reiki", en: "Reiki" }, description: { id: "Terapi energi dengan penyaluran energi melalui tangan.", en: "Energy therapy by channeling energy through hands." }, price_idr: 130000, price_usd: 9, duration: "60 min", image: "https://placehold.co/600x400", hint: "reiki healing" },
+            { title: { id: "Sound Therapy", en: "Sound Therapy" }, description: { id: "Menggunakan suara (gong, singing bowl) untuk relaksasi.", en: "Uses sound (gongs, singing bowls) for relaxation." }, price_idr: 110000, price_usd: 7, duration: "50 min", image: "https://placehold.co/600x400", hint: "sound bath" },
+            { title: { id: "Meditation & Mindfulness", en: "Meditation & Mindfulness" }, description: { id: "Latihan kesadaran dan ketenangan pikiran.", en: "Awareness and peace of mind exercises." }, price_idr: 80000, price_usd: 5, duration: "45 min", image: "https://placehold.co/600x400", hint: "meditation" },
+            { title: { id: "Crystal Healing", en: "Crystal Healing" }, description: { id: "Menggunakan kristal untuk keseimbangan energi.", en: "Uses crystals for energy balance." }, price_idr: 140000, price_usd: 9, duration: "60 min", image: "https://placehold.co/600x400", hint: "crystal healing" },
+        ]
+    },
+    {
+        category: {
+            id: "Terapi Herbal & Tradisional",
+            en: "Herbal & Traditional Therapy"
+        },
+        emoji: "🍵",
+        description: {
+            id: "Menggunakan bahan alami dan teknik warisan budaya.",
+            en: "Using natural ingredients and cultural heritage techniques."
+        },
+        services: [
+            { title: { id: "Jamu Spa", en: "Jamu Spa" }, description: { id: "Menggunakan ramuan tradisional Indonesia.", en: "Uses traditional Indonesian herbal remedies." }, price_idr: 180000, price_usd: 12, duration: "90 min", image: "https://placehold.co/600x400", hint: "herbal spa" },
+            { title: { id: "Ayurvedic Treatment", en: "Ayurvedic Treatment" }, description: { id: "Terapi India berdasarkan keseimbangan dosha.", en: "Indian therapy based on dosha balance." }, price_idr: 220000, price_usd: 15, duration: "90 min", image: "https://placehold.co/600x400", hint: "ayurvedic treatment" },
+            { title: { id: "Herbal Compress Massage", en: "Herbal Compress Massage" }, description: { id: "Pijatan dengan kantong herbal hangat.", en: "Massage with warm herbal compresses." }, price_idr: 190000, price_usd: 13, duration: "75 min", image: "https://placehold.co/600x400", hint: "herbal compress" },
+            { title: { id: "Totok Wajah / Totok Aura", en: "Face / Aura Acupressure" }, description: { id: "Tekanan pada titik energi wajah dan tubuh.", en: "Pressure on facial and body energy points." }, price_idr: 150000, price_usd: 10, duration: "60 min", image: "https://placehold.co/600x400", hint: "acupressure" },
+        ]
+    },
+    {
+        category: {
+            id: "Terapi Khusus",
+            en: "Specialized Therapy"
+        },
+        emoji: "👶",
+        description: {
+            id: "Disesuaikan dengan kebutuhan individu.",
+            en: "Tailored to individual needs."
+        },
+        services: [
+            { title: { id: "Prenatal Massage", en: "Prenatal Massage" }, description: { id: "Untuk ibu hamil.", en: "For expectant mothers." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "prenatal massage" },
+            { title: { id: "Postnatal Massage", en: "Postnatal Massage" }, description: { id: "Untuk pemulihan pasca melahirkan.", en: "For postpartum recovery." }, price_idr: 200000, price_usd: 14, duration: "60 min", image: "https://placehold.co/600x400", hint: "postnatal care" },
+            { title: { id: "Couples Massage", en: "Couples Massage" }, description: { id: "Untuk pasangan secara bersamaan.", en: "For couples simultaneously." }, price_idr: 350000, price_usd: 24, duration: "60 min", image: "https://placehold.co/600x400", hint: "couples massage" },
+            { title: { id: "Kids/Teen Spa", en: "Kids/Teen Spa" }, description: { id: "Perawatan ringan khusus anak-anak dan remaja.", en: "Light treatments specifically for children and teens." }, price_idr: 120000, price_usd: 8, duration: "45 min", image: "https://placehold.co/600x400", hint: "kids spa" },
+            { title: { id: "Medical Spa (Medi-Spa)", en: "Medical Spa (Medi-Spa)" }, description: { id: "Perawatan kecantikan medis seperti botox, peeling kimia, dll.", en: "Medical beauty treatments like botox, chemical peels, etc." }, price_idr: 1000000, price_usd: 68, duration: "Varies", image: "https://placehold.co/600x400", hint: "medical spa" },
+        ]
+    }
 ];
 
 export const pilatesCategories = [
@@ -382,4 +376,79 @@ export const clients: (any)[] = [
     { id: "CUST005", name: "Ava Brown", email: "ava.brown@example.com", phone: "555-789-1234", totalAppointments: 3, lastVisit: "2024-07-25", rfid: "D4E5F6G7" },
     { id: "CUST006", name: "Ethan Garcia", email: "ethan.garcia@example.com", phone: "555-234-5678", totalAppointments: 7, lastVisit: "2024-08-01", rfid: null },
     { id: "CUST007", name: "Mia Martinez", email: "mia.martinez@example.com", phone: "555-876-5432", totalAppointments: 1, lastVisit: "2024-08-12", rfid: "E5F6G7H8" },
+];
+
+export const marketplaces = [
+    {
+        id: 'traveloka',
+        name: 'Traveloka Xperience',
+        logo: 'https://placehold.co/200x80.png',
+        type: 'Travel & Lifestyle',
+        url: 'https://www.traveloka.com/en-id/activities',
+        status: 'Connected',
+        description: {
+            id: 'Jangkau jutaan wisatawan dan pengguna lokal yang mencari aktivitas dan pengalaman spa.',
+            en: 'Reach millions of travelers and local users looking for activities and spa experiences.'
+        }
+    },
+    {
+        id: 'klook',
+        name: 'Klook',
+        logo: 'https://placehold.co/200x80.png',
+        type: 'Travel Activities',
+        url: 'https://www.klook.com',
+        status: 'Not Connected',
+        description: {
+            id: 'Platform global untuk menemukan dan memesan aktivitas, termasuk layanan wellness dan spa.',
+            en: 'A global platform to discover and book activities, including wellness and spa services.'
+        }
+    },
+    {
+        id: 'classpass',
+        name: 'ClassPass',
+        logo: 'https://placehold.co/200x80.png',
+        type: 'Fitness & Wellness',
+        url: 'https://classpass.com',
+        status: 'Not Connected',
+        description: {
+            id: 'Terhubung dengan pengguna yang aktif mencari kelas kebugaran, sesi spa, dan janji temu kecantikan.',
+            en: 'Connect with users actively seeking fitness classes, spa sessions, and beauty appointments.'
+        }
+    },
+    {
+        id: 'fave',
+        name: 'Fave',
+        logo: 'https://placehold.co/200x80.png',
+        type: 'Deals & Cashback',
+        url: 'https://myfave.com',
+        status: 'Connected',
+        description: {
+            id: 'Tawarkan promosi dan penawaran khusus untuk menarik pelanggan baru di pasar Asia Tenggara.',
+            en: 'Offer promotions and special deals to attract new customers in the Southeast Asian market.'
+        }
+    },
+    {
+        id: 'tripadvisor',
+        name: 'Tripadvisor',
+        logo: 'https://placehold.co/200x80.png',
+        type: 'Travel Reviews & Booking',
+        url: 'https://www.tripadvisor.com',
+        status: 'Not Connected',
+        description: {
+            id: 'Tingkatkan visibilitas Anda di platform ulasan perjalanan terbesar di dunia dan terima pemesanan.',
+            en: 'Increase your visibility on the world\'s largest travel review platform and accept bookings.'
+        }
+    },
+     {
+        id: 'mindbody',
+        name: 'Mindbody',
+        logo: 'https://placehold.co/200x80.png',
+        type: 'Wellness Services',
+        url: 'https://www.mindbodyonline.com',
+        status: 'Not Connected',
+        description: {
+            id: 'Platform terkemuka yang menghubungkan dunia dengan kesehatan, kecantikan, dan kebugaran.',
+            en: 'The leading platform that connects the world to health, beauty, and fitness.'
+        }
+    }
 ];

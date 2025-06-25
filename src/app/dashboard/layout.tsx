@@ -16,6 +16,7 @@ import {
   Users,
   Bed,
   UsersRound,
+  Globe,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -55,6 +56,7 @@ const getNavItems = (language: Language) => {
         inventory: { id: "Inventaris", en: "Inventory" },
         financials: { id: "Keuangan", en: "Financials" },
         rooms: { id: "Kamar", en: "Rooms" },
+        marketplace: { id: "Marketplace", en: "Marketplace" },
     };
 
     return [
@@ -67,6 +69,7 @@ const getNavItems = (language: Language) => {
         { href: "/dashboard/inventory", icon: ShoppingBasket, label: translations.inventory[language] },
         { href: "/dashboard/financials", icon: CreditCard, label: translations.financials[language] },
         { href: "/dashboard/rooms", icon: Bed, label: translations.rooms[language] },
+        { href: "/dashboard/marketplace", icon: Globe, label: translations.marketplace[language] },
     ];
 };
 
