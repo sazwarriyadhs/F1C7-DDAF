@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { clients } from "@/lib/data"
-import { MoreHorizontal, PlusCircle } from "lucide-react"
+import { MoreHorizontal, PlusCircle, RadioTower } from "lucide-react"
 import { useSettings } from "@/context/settings-context"
 
 export default function ClientsPage() {
@@ -20,11 +20,14 @@ export default function ClientsPage() {
       phone: { id: "Telepon", en: "Phone" },
       totalAppointments: { id: "Total Janji Temu", en: "Total Appointments" },
       lastVisit: { id: "Kunjungan Terakhir", en: "Last Visit" },
+      rfid: { id: "Gelang RFID", en: "RFID Bracelet" },
       actions: { id: "Tindakan", en: "Actions" },
       edit: { id: "Ubah", en: "Edit" },
       viewHistory: { id: "Lihat Riwayat", en: "View History" },
+      assignRfid: { id: "Tetapkan RFID", en: "Assign RFID" },
       delete: { id: "Hapus", en: "Delete" },
       toggleMenu: { id: "Alihkan menu", en: "Toggle menu" },
+      unassigned: { id: "Belum Ditetapkan", en: "Unassigned" },
   };
 
   return (
@@ -50,6 +53,7 @@ export default function ClientsPage() {
               <TableHead>{translations.phone[language]}</TableHead>
               <TableHead>{translations.totalAppointments[language]}</TableHead>
               <TableHead>{translations.lastVisit[language]}</TableHead>
+              <TableHead>{translations.rfid[language]}</TableHead>
               <TableHead><span className="sr-only">{translations.actions[language]}</span></TableHead>
             </TableRow>
           </TableHeader>
@@ -62,6 +66,16 @@ export default function ClientsPage() {
                 <TableCell>{client.totalAppointments}</TableCell>
                 <TableCell>{client.lastVisit}</TableCell>
                 <TableCell>
+                  {client.rfid ? (
+                    <div className="flex items-center gap-2 font-mono text-sm">
+                      <RadioTower className="h-4 w-4 text-primary" />
+                      <span>{client.rfid}</span>
+                    </div>
+                  ) : (
+                    <span className="text-muted-foreground">{translations.unassigned[language]}</span>
+                  )}
+                </TableCell>
+                <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button aria-haspopup="true" size="icon" variant="ghost">
@@ -73,6 +87,7 @@ export default function ClientsPage() {
                       <DropdownMenuLabel>{translations.actions[language]}</DropdownMenuLabel>
                       <DropdownMenuItem>{translations.edit[language]}</DropdownMenuItem>
                       <DropdownMenuItem>{translations.viewHistory[language]}</DropdownMenuItem>
+                      <DropdownMenuItem>{translations.assignRfid[language]}</DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem className="text-destructive">{translations.delete[language]}</DropdownMenuItem>
                     </DropdownMenuContent>
