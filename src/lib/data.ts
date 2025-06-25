@@ -127,11 +127,52 @@ export const serviceCategories = [
     },
 ];
 
-export const classes = [
-    { id: "CLS001", name: "Vinyasa Flow Pilates", instructor: "Elena Reyes", date: "2024-08-20", time: "08:00 AM", capacity: 15, booked: 12 },
-    { id: "CLS002", name: "Reformer Essentials", instructor: "Mark Chen", date: "2024-08-20", time: "10:00 AM", capacity: 8, booked: 8 },
-    { id: "CLS003", name: "Mat Pilates Core", instructor: "Elena Reyes", date: "2024-08-21", time: "08:00 AM", capacity: 15, booked: 10 },
-    { id: "CLS004", name: "Advanced Reformer", instructor: "Mark Chen", date: "2024-08-21", time: "12:00 PM", capacity: 8, booked: 5 },
+export const pilatesCategories = [
+    {
+        category: "Berdasarkan Metode / Pendekatan",
+        emoji: "✍️",
+        description: "Jenis Pilates berdasarkan gaya atau teknik yang dikembangkan dari metode Joseph Pilates.",
+        types: [
+            { title: "Classical Pilates", description: "Mengikuti metode asli Joseph Pilates tanpa modifikasi. Urutan gerakannya tetap dan terstruktur. Menggabungkan Mat Pilates & alat (Reformer, Cadillac, Chair)." },
+            { title: "Contemporary Pilates", description: "Modifikasi dari metode klasik, dipadukan dengan ilmu anatomi modern dan fisioterapi. Lebih fleksibel, bisa disesuaikan dengan kondisi tubuh dan kebutuhan individu." },
+            { title: "Clinical Pilates", description: "Biasanya digunakan oleh fisioterapis untuk rehabilitasi cedera. Fokus pada koreksi postur, stabilitas tulang belakang, dan penyembuhan trauma tubuh." },
+        ]
+    },
+    {
+        category: "Berdasarkan Media / Peralatan",
+        emoji: "🏋️‍♀️",
+        description: "Jenis Pilates berdasarkan alat yang digunakan saat latihan.",
+        types: [
+            { title: "Mat Pilates", description: "Dilakukan di atas matras tanpa alat berat. Mengandalkan berat badan sendiri untuk kekuatan inti dan stabilitas. Cocok untuk pemula atau latihan di rumah." },
+            { title: "Reformer Pilates", description: "Menggunakan mesin Reformer: kerangka dengan papan geser, pegas, dan tali. Lebih dinamis dan bisa memberikan resistensi/dukungan tambahan. Cocok untuk semua level, termasuk rehabilitasi." },
+            { title: "Cadillac Pilates (Trapeze Table)", description: "Menggunakan alat besar dengan tiang, tali, dan pegas. Cocok untuk latihan terapeutik dan latihan lanjutan." },
+            { title: "Chair Pilates (Wunda Chair)", description: "Alat berbentuk kursi kecil dengan pedal resistensi. Menantang keseimbangan, kekuatan inti, dan koordinasi tubuh." },
+            { title: "Barrel Pilates (Spine Corrector / Ladder Barrel)", description: "Untuk latihan fleksibilitas, postur, dan penguatan punggung bagian atas dan bawah." },
+        ]
+    },
+    {
+        category: "Berdasarkan Tujuan / Fokus Latihan",
+        emoji: "🎯",
+        description: "Jenis Pilates disesuaikan dengan kebutuhan peserta.",
+        types: [
+             { title: "Rehab Pilates", description: "Fokus pada pemulihan cedera, gangguan tulang belakang, atau nyeri otot. Biasanya dipandu oleh fisioterapis atau pelatih berlisensi medis." },
+             { title: "Prenatal Pilates", description: "Dirancang untuk ibu hamil, membantu memperkuat otot panggul dan menjaga postur. Meningkatkan pernapasan, mengurangi nyeri punggung dan bengkak." },
+             { title: "Postnatal Pilates", description: "Untuk pemulihan pasca melahirkan. Fokus pada penguatan otot perut, panggul, dan punggung bawah." },
+             { title: "Athletic / Performance Pilates", description: "Dirancang untuk atlet atau penari. Menggabungkan gerakan Pilates untuk meningkatkan performa, fleksibilitas, dan mencegah cedera." },
+             { title: "Pilates for Seniors", description: "Fokus pada keseimbangan, fleksibilitas ringan, dan kekuatan untuk usia lanjut." },
+        ]
+    },
+    {
+        category: "Varian Fusion (Gabungan dengan Metode Lain)",
+        emoji: "💡",
+        description: "Beberapa studio menggabungkan Pilates dengan latihan modern:",
+        types: [
+            { title: "Pilates Yoga Fusion (PiYo)", description: "Gabungan gerakan Pilates dan Yoga." },
+            { title: "HIIT Pilates", description: "Pilates dengan intensitas tinggi dan interval." },
+            { title: "Barre Pilates", description: "Kombinasi Pilates, balet, dan cardio ringan." },
+            { title: "TRX Pilates", description: "Menggabungkan alat TRX (suspension training) untuk variasi latihan." },
+        ]
+    }
 ];
 
 export const staff = [
