@@ -314,3 +314,62 @@ export const getFinancialData = (lang: 'id' | 'en') => {
         }))
     }
 }
+
+export const rooms = [
+    {
+        id: 'room-001',
+        name: {
+            id: 'Suite Tunggal',
+            en: 'Single Suite Room'
+        },
+        description: {
+            id: 'Kamar suite mewah untuk satu orang, dengan pemandangan taman.',
+            en: 'A luxurious suite room for one person, with a garden view.'
+        },
+        status: 'Available', // Available, Occupied, Cleaning
+        image: 'https://placehold.co/600x400',
+        hint: 'hotel room'
+    },
+    {
+        id: 'room-002',
+        name: {
+            id: 'Suite Pasangan',
+            en: 'Couple Suite Room'
+        },
+        description: {
+            id: 'Kamar suite romantis untuk pasangan, dilengkapi dengan jacuzzi pribadi.',
+            en: 'A romantic suite room for couples, complete with a private jacuzzi.'
+        },
+        status: 'Occupied',
+        image: 'https://placehold.co/600x400',
+        hint: 'luxury suite'
+    },
+    {
+        id: 'room-003',
+        name: {
+            id: 'Kamar Standar',
+            en: 'Standard Room'
+        },
+        description: {
+            id: 'Kamar standar yang nyaman dengan semua fasilitas dasar.',
+            en: 'A comfortable standard room with all the basic amenities.'
+        },
+        status: 'Cleaning',
+        image: 'https://placehold.co/600x400',
+        hint: 'standard room'
+    },
+    {
+        id: 'room-004',
+        name: {
+            id: 'Kamar Standar',
+            en: 'Standard Room'
+        },
+        description: {
+            id: 'Kamar standar yang nyaman dengan semua fasilitas dasar.',
+            en: 'A comfortable standard room with all the basic amenities.'
+        },
+        status: 'Available',
+        image: 'https://placehold.co/600x400',
+        hint: 'modern room'
+    }
+];
