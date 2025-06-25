@@ -35,88 +35,94 @@ export const appointments = [
 
 export const serviceCategories = [
     {
-        category: "Terapi Pijat / Massage Therapy",
+        category: "Terapi Fisik & Tubuh (Physical Wellness Therapy)",
+        emoji: "💪",
+        description: "Fokus pada kesehatan tubuh secara langsung, seperti kekuatan, postur, fleksibilitas, dan metabolisme.",
+        services: [
+            { title: "Swedish Massage", description: "Pijat terapi untuk relaksasi dan sirkulasi.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "swedish massage" },
+            { title: "Thai Massage", description: "Peregangan dan tekanan untuk fleksibilitas.", price: 170000, duration: "90 min", image: "https://placehold.co/600x400", hint: "thai massage" },
+            { title: "Deep Tissue Massage", description: "Fokus pada otot dalam dan jaringan ikat.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "deep tissue" },
+            { title: "Shiatsu Massage", description: "Pijatan tekanan jari khas Jepang.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "shiatsu massage" },
+            { title: "Lymphatic Drainage", description: "Pijatan lembut untuk mengurangi pembengkakan.", price: 190000, duration: "75 min", image: "https://placehold.co/600x400", hint: "lymphatic drainage" },
+            { title: "Physiotherapy (Fisioterapi)", description: "Pemulihan fungsi otot dan sendi.", price: 250000, duration: "60 min", image: "https://placehold.co/600x400", hint: "physiotherapy" },
+            { title: "Chiropractic", description: "Penyesuaian tulang belakang untuk kesehatan saraf.", price: 300000, duration: "45 min", image: "https://placehold.co/600x400", hint: "chiropractic" },
+            { title: "Osteopathy", description: "Terapi tulang, otot, dan sendi secara menyeluruh.", price: 280000, duration: "60 min", image: "https://placehold.co/600x400", hint: "osteopathy" },
+            { title: "Pilates / Yoga Therapy", description: "Latihan untuk postur, fleksibilitas, dan pernapasan.", price: 120000, duration: "60 min", image: "https://placehold.co/600x400", hint: "yoga therapy" },
+            { title: "Acupuncture / Acupressure", description: "Teknik Cina kuno menggunakan jarum atau tekanan.", price: 200000, duration: "60 min", image: "https://placehold.co/600x400", hint: "acupuncture" },
+        ]
+    },
+    {
+        category: "Terapi Mental & Emosional (Mental & Emotional Wellness Therapy)",
+        emoji: "🧠",
+        description: "Menangani stres, kecemasan, trauma, burnout, dan ketidakseimbangan psikologis.",
+        services: [
+            { title: "Mindfulness & Meditation", description: "Teknik kesadaran diri dan ketenangan.", price: 80000, duration: "45 min", image: "https://placehold.co/600x400", hint: "meditation mindfulness" },
+            { title: "Cognitive Behavioral Therapy (CBT)", description: "Mengubah pola pikir negatif.", price: 400000, duration: "60 min", image: "https://placehold.co/600x400", hint: "therapy session" },
+            { title: "Hypnotherapy (Hipnoterapi)", description: "Membantu pemrograman ulang pikiran bawah sadar.", price: 350000, duration: "75 min", image: "https://placehold.co/600x400", hint: "hypnotherapy" },
+            { title: "Breathwork Therapy", description: "Terapi pernapasan untuk relaksasi dan pelepasan emosi.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "breathwork" },
+            { title: "Emotional Freedom Technique (EFT)", description: "Ketukan ringan pada titik-titik energi.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "eft tapping" },
+            { title: "Art Therapy / Music Therapy", description: "Ekspresi emosi melalui seni.", price: 220000, duration: "90 min", image: "https://placehold.co/600x400", hint: "art therapy" },
+        ]
+    },
+    {
+        category: "Terapi Relaksasi & Pemulihan (Relaxation & Recovery Therapy)",
         emoji: "💆‍♀️",
-        description: "Terapi untuk relaksasi otot, sirkulasi darah, dan keseimbangan energi tubuh.",
+        description: "Membantu tubuh dan pikiran untuk pulih dari stres atau kelelahan.",
         services: [
-        { title: "Swedish Massage", description: "Pijatan ringan dengan gerakan panjang dan memutar.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "swedish massage" },
-        { title: "Deep Tissue Massage", description: "Fokus pada otot dalam dan jaringan ikat.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "deep tissue" },
-        { title: "Thai Massage", description: "Kombinasi peregangan dan tekanan tubuh.", price: 170000, duration: "90 min", image: "https://placehold.co/600x400", hint: "thai massage" },
-        { title: "Shiatsu Massage", description: "Pijatan tekanan jari khas Jepang.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "shiatsu massage" },
-        { title: "Balinese Massage", description: "Perpaduan pijat tradisional Bali dengan aromaterapi.", price: 175000, duration: "75 min", image: "https://placehold.co/600x400", hint: "balinese massage" },
-        { title: "Hot Stone Massage", description: "Menggunakan batu panas untuk relaksasi otot.", price: 200000, duration: "90 min", image: "https://placehold.co/600x400", hint: "hot stone" },
-        { title: "Refleksiologi", description: "Menekan titik-titik di kaki, tangan, atau telinga untuk kesehatan seluruh tubuh.", price: 100000, duration: "45 min", image: "https://placehold.co/600x400", hint: "reflexology foot" },
-        { title: "Aromatherapy Massage", description: "Menggunakan minyak esensial untuk relaksasi dan penyembuhan.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "aromatherapy" },
+            { title: "Aromatherapy", description: "Penggunaan minyak esensial untuk relaksasi.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "aromatherapy" },
+            { title: "Sound Healing / Sound Bath", description: "Terapi suara menggunakan gong, singing bowl.", price: 110000, duration: "50 min", image: "https://placehold.co/600x400", hint: "sound bath" },
+            { title: "Floatation Therapy (Sensory Deprivation)", description: "Terapi mengapung di air garam.", price: 250000, duration: "60 min", image: "https://placehold.co/600x400", hint: "float tank" },
+            { title: "Sleep Therapy", description: "Teknik meningkatkan kualitas tidur.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "sleep therapy" },
+            { title: "Thermal & Hydrotherapy", description: "Sauna, uap, mandi air hangat/dingin.", price: 100000, duration: "45 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
         ]
     },
     {
-        category: "Terapi Tubuh / Body Treatment",
+        category: "Terapi Detoks & Metabolik (Detox & Internal Wellness Therapy)",
+        emoji: "🧬",
+        description: "Membersihkan tubuh dari racun dan meningkatkan metabolisme secara alami.",
+        services: [
+            { title: "Colon Hydrotherapy", description: "Pembersihan usus besar.", price: 500000, duration: "75 min", image: "https://placehold.co/600x400", hint: "hydrotherapy" },
+            { title: "Juice Fasting / Detox Program", description: "Diet berbasis jus dan makanan sehat.", price: 300000, duration: "Program", image: "https://placehold.co/600x400", hint: "juice detox" },
+            { title: "Infrared Sauna", description: "Mengeluarkan racun lewat keringat.", price: 150000, duration: "45 min", image: "https://placehold.co/600x400", hint: "infrared sauna" },
+            { title: "Liver / Kidney Detox Programs", description: "Pembersihan organ-organ vital.", price: 350000, duration: "Program", image: "https://placehold.co/600x400", hint: "detox program" },
+            { title: "Ayurvedic Panchakarma", description: "Protokol pembersihan dalam ayurveda.", price: 700000, duration: "Program", image: "https://placehold.co/600x400", hint: "ayurvedic treatment" },
+        ]
+    },
+    {
+        category: "Terapi Holistik & Tradisional (Holistic & Traditional Wellness Therapy)",
         emoji: "🌿",
-        description: "Untuk detoksifikasi, perawatan kulit, dan penyegaran tubuh.",
+        description: "Pendekatan menyeluruh yang menggabungkan tubuh, pikiran, dan jiwa.",
         services: [
-        { title: "Body Scrub (Lulur)", description: "Pengelupasan kulit mati dengan scrub alami (kopi, garam, beras, dll).", price: 120000, duration: "45 min", image: "https://placehold.co/600x400", hint: "body scrub" },
-        { title: "Body Wrap", description: "Membungkus tubuh dengan lumpur, rumput laut, atau herbal untuk detoksifikasi.", price: 180000, duration: "75 min", image: "https://placehold.co/600x400", hint: "body wrap" },
-        { title: "Detox Treatment", description: "Mengeluarkan racun dari tubuh, sering dikombinasikan dengan sauna.", price: 250000, duration: "90 min", image: "https://placehold.co/600x400", hint: "detox" },
-        { title: "Parafango / Mud Therapy", description: "Perawatan dengan lumpur mineral dan lilin untuk melancarkan peredaran darah.", price: 220000, duration: "60 min", image: "https://placehold.co/600x400", hint: "mud therapy" },
+            { title: "Ayurveda Therapy", description: "Terapi India kuno berdasarkan keseimbangan dosha.", price: 220000, duration: "90 min", image: "https://placehold.co/600x400", hint: "ayurveda" },
+            { title: "Traditional Chinese Medicine (TCM)", description: "Akupunktur, herbal, dan qigong.", price: 250000, duration: "75 min", image: "https://placehold.co/600x400", hint: "chinese medicine" },
+            { title: "Reiki / Energy Healing", description: "Penyaluran energi penyembuhan.", price: 130000, duration: "60 min", image: "https://placehold.co/600x400", hint: "reiki healing" },
+            { title: "Jamu / Herbal Therapy", description: "Ramuan tradisional Indonesia.", price: 180000, duration: "90 min", image: "https://placehold.co/600x400", hint: "herbal therapy" },
+            { title: "Shamanic Healing", description: "Penyembuhan spiritual dari tradisi asli.", price: 400000, duration: "90 min", image: "https://placehold.co/600x400", hint: "shamanic healing" },
+            { title: "Crystal Healing", description: "Terapi menggunakan batu kristal.", price: 140000, duration: "60 min", image: "https://placehold.co/600x400", hint: "crystal healing" },
         ]
     },
     {
-        category: "Terapi Air / Hydrotherapy",
-        emoji: "💧",
-        description: "Menggunakan air untuk penyembuhan dan relaksasi.",
+        category: "Terapi Nutrisi & Gaya Hidup (Nutrition & Lifestyle Wellness Therapy)",
+        emoji: "🍽️",
+        description: "Mengatur pola makan, kebiasaan hidup, dan kebugaran.",
         services: [
-        { title: "Jacuzzi / Whirlpool Bath", description: "Air hangat bertekanan untuk melemaskan otot.", price: 80000, duration: "30 min", image: "https://placehold.co/600x400", hint: "jacuzzi" },
-        { title: "Sauna", description: "Ruangan panas kering yang merangsang keringat.", price: 60000, duration: "30 min", image: "https://placehold.co/600x400", hint: "sauna" },
-        { title: "Steam Room (Ruang Uap)", description: "Ruangan uap hangat untuk membuka pori dan detoksifikasi.", price: 60000, duration: "30 min", image: "https://placehold.co/600x400", hint: "steam room" },
-        { title: "Vichy Shower", description: "Semburan air dari atas tempat tidur terapi untuk relaksasi.", price: 100000, duration: "20 min", image: "https://placehold.co/600x400", hint: "vichy shower" },
-        { title: "Cold Plunge Pool", description: "Kolam air dingin untuk stimulasi sirkulasi darah.", price: 50000, duration: "15 min", image: "https://placehold.co/600x400", hint: "cold plunge" },
+            { title: "Nutritional Counseling", description: "Konsultasi gizi dan suplemen.", price: 250000, duration: "60 min", image: "https://placehold.co/600x400", hint: "nutritionist" },
+            { title: "Weight Management Programs", description: "Program manajemen berat badan.", price: 500000, duration: "Program", image: "https://placehold.co/600x400", hint: "weight management" },
+            { title: "Functional Medicine", description: "Identifikasi akar masalah kesehatan.", price: 600000, duration: "90 min", image: "https://placehold.co/600x400", hint: "functional medicine" },
+            { title: "Personal Coaching / Health Coaching", description: "Panduan hidup sehat jangka panjang.", price: 450000, duration: "60 min", image: "https://placehold.co/600x400", hint: "health coach" },
+            { title: "Fitness Therapy / Exercise Therapy", description: "Olahraga disesuaikan kondisi individu.", price: 200000, duration: "60 min", image: "https://placehold.co/600x400", hint: "fitness" },
         ]
     },
     {
-        category: "Terapi Kecantikan / Beauty Spa",
-        emoji: "🌸",
-        description: "Fokus pada perawatan estetika.",
+        category: "Terapi Spiritualitas & Kesadaran Diri (Spiritual & Consciousness Therapy)",
+        emoji: "🧘",
+        description: "Fokus pada pertumbuhan jiwa, koneksi diri, dan makna hidup.",
         services: [
-        { title: "Facial", description: "Pembersihan dan perawatan wajah.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "facial treatment" },
-        { title: "Anti-aging Facial", description: "Perawatan wajah untuk mengurangi kerutan.", price: 200000, duration: "75 min", image: "https://placehold.co/600x400", hint: "anti-aging facial" },
-        { title: "Acne Facial", description: "Perawatan untuk kulit berjerawat.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "acne treatment" },
-        { title: "Manicure & Pedicure", description: "Perawatan kuku tangan dan kaki.", price: 100000, duration: "90 min", image: "https://placehold.co/600x400", hint: "manicure pedicure" },
-        { title: "Waxing / Sugaring", description: "Penghilangan bulu tubuh.", price: 90000, duration: "45 min", image: "https://placehold.co/600x400", hint: "waxing" },
-        { title: "Hair Spa", description: "Perawatan rambut dan kulit kepala.", price: 120000, duration: "60 min", image: "https://placehold.co/600x400", hint: "hair spa" },
-        ]
-    },
-    {
-        category: "Terapi Energi & Relaksasi",
-        emoji: "☯️",
-        description: "Meningkatkan keseimbangan energi dan kesehatan mental.",
-        services: [
-        { title: "Reiki", description: "Terapi energi dengan penyaluran energi melalui tangan.", price: 130000, duration: "60 min", image: "https://placehold.co/600x400", hint: "reiki energy" },
-        { title: "Sound Therapy", description: "Menggunakan suara (gong, singing bowl) untuk relaksasi.", price: 110000, duration: "50 min", image: "https://placehold.co/600x400", hint: "sound therapy" },
-        { title: "Meditation & Mindfulness", description: "Latihan kesadaran dan ketenangan pikiran.", price: 80000, duration: "45 min", image: "https://placehold.co/600x400", hint: "meditation" },
-        { title: "Crystal Healing", description: "Menggunakan kristal untuk keseimbangan energi.", price: 140000, duration: "60 min", image: "https://placehold.co/600x400", hint: "crystal healing" },
-        ]
-    },
-    {
-        category: "Terapi Herbal & Tradisional",
-        emoji: "🍵",
-        description: "Menggunakan bahan alami dan teknik warisan budaya.",
-        services: [
-        { title: "Jamu Spa", description: "Menggunakan ramuan tradisional Indonesia.", price: 180000, duration: "90 min", image: "https://placehold.co/600x400", hint: "jamu spa" },
-        { title: "Ayurvedic Treatment", description: "Terapi India berdasarkan keseimbangan dosha (Vata, Pitta, Kapha).", price: 220000, duration: "90 min", image: "https://placehold.co/600x400", hint: "ayurvedic treatment" },
-        { title: "Herbal Compress Massage", description: "Pijatan dengan kantong herbal hangat.", price: 190000, duration: "75 min", image: "https://placehold.co/600x400", hint: "herbal compress" },
-        { title: "Totok Wajah / Totok Aura", description: "Tekanan pada titik energi wajah dan tubuh.", price: 120000, duration: "45 min", image: "https://placehold.co/600x400", hint: "face massage" },
-        ]
-    },
-    {
-        category: "Terapi Khusus",
-        emoji: "👶",
-        description: "Disesuaikan dengan kebutuhan individu.",
-        services: [
-        { title: "Prenatal Massage", description: "Untuk ibu hamil.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "prenatal massage" },
-        { title: "Postnatal Massage", description: "Untuk pemulihan pasca melahirkan.", price: 160000, duration: "60 min", image: "https://placehold.co/600x400", hint: "postnatal massage" },
-        { title: "Couples Massage", description: "Untuk pasangan secara bersamaan.", price: 300000, duration: "60 min", image: "https://placehold.co/600x400", hint: "couples massage" },
-        { title: "Kids/Teen Spa", description: "Perawatan ringan khusus anak-anak dan remaja.", price: 90000, duration: "45 min", image: "https://placehold.co/600x400", hint: "teen spa" },
-        { title: "Medical Spa (Medi-Spa)", description: "Perawatan kecantikan medis seperti botox, peeling kimia, laser, dll.", price: 500000, duration: "60 min", image: "https://placehold.co/600x400", hint: "medical spa" },
+            { title: "Spiritual Counseling", description: "Konseling berdasarkan nilai spiritual.", price: 300000, duration: "60 min", image: "https://placehold.co/600x400", hint: "spiritual counseling" },
+            { title: "Silent Retreat / Digital Detox", description: "Melepaskan diri dari distraksi dunia luar.", price: 800000, duration: "Program", image: "https://placehold.co/600x400", hint: "silent retreat" },
+            { title: "Chakra Balancing", description: "Menyeimbangkan pusat energi dalam tubuh.", price: 180000, duration: "60 min", image: "https://placehold.co/600x400", hint: "chakra balancing" },
+            { title: "Soul Journey / Regression Therapy", description: "Menyembuhkan melalui eksplorasi jiwa.", price: 450000, duration: "90 min", image: "https://placehold.co/600x400", hint: "regression therapy" },
+            { title: "Mantra & Prayer Healing", description: "Doa atau pengulangan mantra penyembuhan.", price: 150000, duration: "60 min", image: "https://placehold.co/600x400", hint: "prayer healing" },
         ]
     },
 ];
