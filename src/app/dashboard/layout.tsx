@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import {
   Bell,
   Calendar,
@@ -45,8 +45,9 @@ import { cn } from "@/lib/utils"
 import { SettingsProvider, useSettings } from "@/context/settings-context"
 
 type Language = 'id' | 'en';
+type UserRole = 'admin' | 'staff';
 
-const getNavItems = (language: Language) => {
+const getNavItems = (language: Language, role: UserRole) => {
     const translations = {
         dashboard: { id: "Dasbor", en: "Dashboard" },
         appointments: { id: "Janji Temu", en: "Appointments" },
@@ -60,18 +61,20 @@ const getNavItems = (language: Language) => {
         marketplace: { id: "Marketplace", en: "Marketplace" },
     };
 
-    return [
-        { href: "/dashboard", icon: Home, label: translations.dashboard[language] },
-        { href: "/dashboard/appointments", icon: Calendar, label: translations.appointments[language], badge: "6" },
-        { href: "/dashboard/clients", icon: Users, label: translations.clients[language] },
-        { href: "/dashboard/services", icon: Sprout, label: translations.services[language] },
-        { href: "/dashboard/classes", icon: Dumbbell, label: translations.classes[language] },
-        { href: "/dashboard/staff", icon: UsersRound, label: translations.staff[language] },
-        { href: "/dashboard/inventory", icon: ShoppingBasket, label: translations.inventory[language] },
-        { href: "/dashboard/financials", icon: CreditCard, label: translations.financials[language] },
-        { href: "/dashboard/rooms", icon: Bed, label: translations.rooms[language] },
-        { href: "/dashboard/marketplace", icon: Globe, label: translations.marketplace[language] },
+    const allNavItems = [
+        { href: "/dashboard", icon: Home, label: translations.dashboard[language], roles: ['admin', 'staff'] },
+        { href: "/dashboard/appointments", icon: Calendar, label: translations.appointments[language], badge: "6", roles: ['admin', 'staff'] },
+        { href: "/dashboard/clients", icon: Users, label: translations.clients[language], roles: ['admin', 'staff'] },
+        { href: "/dashboard/services", icon: Sprout, label: translations.services[language], roles: ['admin', 'staff'] },
+        { href: "/dashboard/classes", icon: Dumbbell, label: translations.classes[language], roles: ['admin', 'staff'] },
+        { href: "/dashboard/staff", icon: UsersRound, label: translations.staff[language], roles: ['admin'] },
+        { href: "/dashboard/inventory", icon: ShoppingBasket, label: translations.inventory[language], roles: ['admin', 'staff'] },
+        { href: "/dashboard/financials", icon: CreditCard, label: translations.financials[language], roles: ['admin'] },
+        { href: "/dashboard/rooms", icon: Bed, label: translations.rooms[language], roles: ['admin', 'staff'] },
+        { href: "/dashboard/marketplace", icon: Globe, label: translations.marketplace[language], roles: ['admin'] },
     ];
+    
+    return allNavItems.filter(item => item.roles.includes(role));
 };
 
 function LanguageSwitcher() {
@@ -102,7 +105,8 @@ function LanguageSwitcher() {
 function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { language } = useSettings();
-  const navItems = getNavItems(language);
+  const [userRole, setUserRole] = useState<UserRole>('admin');
+  const navItems = getNavItems(language, userRole);
 
   useEffect(() => {
     document.documentElement.classList.add('dark');
@@ -116,13 +120,16 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
       toggleNav: { id: "Alihkan menu navigasi", en: "Toggle navigation menu" },
       toggleUser: { id: "Alihkan menu pengguna", en: "Toggle user menu" },
       myAccount: { id: "Akun Saya", en: "My Account" },
-      settings: { id: "Pengaturan", en: "Settings" },
+      settings: { id: "Profil", en: "Profile" },
       support: { id: "Dukungan", en: "Support" },
       logout: { id: "Keluar", en: "Logout" },
       toggleNotifications: { id: "Alihkan notifikasi", en: "Toggle notifications" },
       upgradeToPro: { id: "Tingkatkan ke Pro", en: "Upgrade to Pro" },
       upgradeDescription: { id: "Buka semua fitur dan dapatkan akses tak terbatas ke tim dukungan kami.", en: "Unlock all features and get unlimited access to our support team." },
       upgrade: { id: "Tingkatkan", en: "Upgrade" },
+      switchRole: { id: "Ganti Peran (Demo)", en: "Switch Role (Demo)" },
+      admin: { id: "Admin", en: "Admin" },
+      staff: { id: "Staf", en: "Staff" },
   }
 
   return (
@@ -234,10 +241,22 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>{translations.myAccount[language]}</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>{translations.settings[language]}</DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/dashboard/profile">{translations.settings[language]}</Link>
+              </DropdownMenuItem>
               <DropdownMenuItem>{translations.support[language]}</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>{translations.logout[language]}</DropdownMenuItem>
+              <DropdownMenuLabel>{translations.switchRole[language]}</DropdownMenuLabel>
+              <DropdownMenuItem onSelect={() => setUserRole('admin')} disabled={userRole === 'admin'}>
+                {translations.admin[language]}
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setUserRole('staff')} disabled={userRole === 'staff'}>
+                {translations.staff[language]}
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link href="/login">{translations.logout[language]}</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
