@@ -4,8 +4,9 @@ Serenity Spa is a full-stack web application designed to manage the operations o
 
 This application is built with a modern tech stack, ensuring a responsive, fast, and scalable user experience.
 
-![Serenity Spa Dashboard](https://placehold.co/1200x600)
-*<p align="center">A placeholder image of the dashboard interface.</p>*
+![Serenity Spa Dashboard](https://raw.githubusercontent.com/sazwarriyadhs/F1C7-DDAF/spawellnes/docs/thespa.png)
+<p align="center">Tampilan antarmuka dashboard Serenity Spa.</p>
+
 
 ## ✨ Key Features
 
